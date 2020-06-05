@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//방법1
+	function validate(){
+		var pwd1=document.getElementById("pwd1").value;
+		var pwd2=document.getElementById("pwd2").value;
+		var hobby=document.getElementsByName("hobby");
+		var cnt=0;
+		for(let i=0; i<hobby.length; i++){
+			if(hobby[i].checked){
+				cnt++;
+			}
+		}
+		if(pwd1=="" || pwd2==""){
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}else if(pwd1!=pwd2){
+			alert("비밀번호를 확인해주세요.");
+			return false;
+		}else if(cnt<1){
+			alert("취미를 선택해주세요.");
+			return false;
+		}
+		return true;
+	}
+	//방법2
+	function validate(e){
+		var pwd1=document.getElementById("pwd1").value;
+		var pwd2=document.getElementById("pwd2").value;
+		var hobby=document.getElementsByName("hobby");
+		var cnt=0;
+		for(let i=0; i<hobby.length; i++){
+			if(hobby[i].checked){
+				cnt++;
+			}
+		}
+		if(pwd1=="" || pwd2==""){
+			alert("비밀번호를 입력하세요.");
+			e.preventDefault();
+		}else if(pwd1!=pwd2){
+			alert("비밀번호를 확인해주세요.");
+			e.preventDefault();
+		}else if(cnt<1){
+			alert("취미를 선택해주세요.");
+			e.preventDefault();
+		}
+	}
+</script>
+</head>
+<body>
+<h1>회원가입</h1>
+	<!-- 입력된 비밀번호가 일치하는지 확인하기 / 취미가 하나 이상 선택된 경우만 서버로 데이터 전송하기-->
+	<form action="join.jsp" onsubmit="return validate()"> <!-- onsubmit을 이용해서 유효성검사하는 함수 호출 후 서브밋-->
+		아이디(*)
+		<input type="text" name="id" id="id"><br>
+		비밀번호(*)
+		<input type="password" name="pwd" id="pwd1"><br>
+		비밀번호 확인(*)
+		<input type="password" name="pwd" id="pwd2"><br>
+		취미<br>
+		<input type="checkbox" name="hobby" value="영화">영화
+		<input type="checkbox" name="hobby" value="여행">여행
+		<input type="checkbox" name="hobby" value="게임">게임
+		<input type="checkbox" name="hobby" value="없음">없음
+		<br>
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

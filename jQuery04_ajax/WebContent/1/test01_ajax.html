@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			$.ajax({
+				url:"books.xml", //요청할 서버주소
+				dataType: "xml", //응답데이터타입(xml,json,text,...)
+				success:function(data){ //xhr.readyState==4 && xhr.status==200과 같음
+					//alert(data);
+					$(data).find("book").each(function(){ //find:자식요소 찾기
+						var title=$(this).find("title").text();
+						var price=$(this).find("price").text();
+						$("#booklist").append("<p>"+title+":"+price+"원</p>");
+					});
+				}
+			});
+		});
+	});	
+</script>
+</head>
+<body>
+<input type="button" value="도서목록" id="btn1">
+<div id="booklist"></div>
+</body>
+</html>

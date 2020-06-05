@@ -1,0 +1,48 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome localhost",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9281,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:8081/js02/test04_quiz.html"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9235,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/js02/WebContent/test04_quiz.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (1)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9223,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/js02/WebContent/test05_css.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (2)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9218,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/js02/WebContent/test06_css.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (3)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9285,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/js02/WebContent/test07_quiz.html?_cmAuth\u003donutozbzoi"
+    }
+  ]
+}

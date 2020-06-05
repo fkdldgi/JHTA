@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#box1").draggable();
+		$("#box2 img").draggable({
+			//containment:"parent", //부모div내에서만 드래그가능
+			//axis:"x" //x방향으로만 드래그가능
+			containment: [0,0,700,700] //x축 0부터 700px까지, y축 0부터 700px까지 드래그가능
+			
+		});
+	});
+</script>
+</head>
+<body>
+<div id="box1" style="width:400px;height: 200px;background-color: orange;">
+	<h1>나를 드래그하세요~</h1>
+</body>
+<div id="box2" style="width:500px;height: 500px;background-color: pink;" >
+	<img src="images/1.png" id="img1">
+</div>
+</html>

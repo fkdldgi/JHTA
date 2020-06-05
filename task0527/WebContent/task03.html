@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#div1{
+	position: relative;
+}
+#img1{
+	position: absolute;
+	left:0;
+}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<button id="btn1">go</button>
+<div id="div1">
+	<img src="images/2.png" id="img1">
+</div>
+</body>
+<script type="text/javascript">
+	var size=0;
+	$("#btn1").click(function(){
+		$("#img1").css("left",size+=50);
+	});
+</script>
+</html>

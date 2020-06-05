@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function printBirth(){
+		var birth=document.getElementById("birth").value;
+		var getY=0;
+		var getM=0;
+		var getD=0;
+		if(birth.length==6){
+			getY=birth.substr(0,2);
+			getM=birth.substr(2,2);
+			getD=birth.substr(4,2);
+		}else if(birth.length==8){
+			getY=birth.substr(0,4);
+			getM=birth.substr(4,2);
+			getD=birth.substr(6,2);
+		}else{
+			alert("올바른 생년월일형태로 입력해주세요.");
+		}
+		var date=new Date(getY+"/"+getM+"/"+getD);
+		var y=date.getFullYear();
+		var m=date.getMonth();
+		var d=date.getDate();
+		var w=date.getDay();
+		var arr=["일","월","화","수","목","금","토"];
+		var div=document.getElementById("result");
+		div.innerHTML=y+"년"+(m+1)+"월"+d+"일 "+arr[w]+"요일";
+	}
+</script>
+</head>
+<body>
+<!-- 태어난 년월일을 입력받아 태어난 요일 출력해보세요. -->
+<input type="text" id="birth">
+<input type="button" value="요일출력" onclick="printBirth()">
+<div id="result">
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="newsbox"></div>
+</body>
+<script>
+	setInterval(showNews,1000);
+	var news=["\"[단독] 뉴스타파에 윤석열 아내 의혹 넘긴 경찰관 수사 중\"",
+			  "\"메시의 해명 인터 밀란 이적설? 가짜(fake) 뉴스\"",
+			  "\"프랑스 구글 언론사들에 뉴스 콘텐츠 비용 내야\""];
+	//1초에 한번씩 뉴스를 div에 출력되도록 해보세요.
+	var index=0;
+	function showNews(){
+		var title=document.getElementById("newsbox");
+		title.innerHTML=news[index++ % news.length];
+		//if(index==news.length) index=0;
+	}
+</script>
+</html>

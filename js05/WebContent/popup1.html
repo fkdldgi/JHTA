@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function closePopup(){
+		//자기자신의 창은 self, 자신을 띄워준 창은 opener
+		self.close(); //자신의 팝업창 닫기
+		//opener.close(); //자신을 띄워준 창 닫기
+	}
+</script>
+</head>
+<body>
+<div>
+	<input type="button" value="닫기" onclick="closePopup()">
+	<h1>나는 팝업창입니다.</h1>
+	<img src="images/1.png">
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function test1(){
+		console.log("test1:");
+	}
+	//test1();
+	var test2=function(){
+		console.log("test2......");
+	}
+	test2();
+	var test3=test1;
+	test3();
+
+	setInterval(function(){ //이름없는 함수(1번만 사용될 경우 많이 사용됨.)
+		console.log("test4.......")
+	},1000);
+
+	var func1=(msg)=>{ //6버전부터 지원
+		alert(msg);
+	}
+	func1("반가워요");
+
+	setInterval(()=>{
+		console.log("안녕!!!!");
+	},1000);
+</script>
+</head>
+<body>
+
+</body>
+</html>

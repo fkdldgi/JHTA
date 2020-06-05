@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var n=1;
+		$("#btn1").click(function(){
+			$("#box1").slideUp(1000,function(){
+				//alert("숨기기 작업완료!");
+				$("#box1 img").prop("src","images/"+ ++n +".png");
+				if(n>10) n=1;
+			});
+		});
+		$("#btn2").click(function(){
+			$("#box1").slideDown(1000);
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="숨기기" id="btn1">
+<input type="button" value="보이기" id="btn2">
+<div id="box1" style="width:300px;height:200px;background-color: orange;">
+	<img src="images/1.png">
+</div>
+<input type="button" value="이동1" id="btn3">
+<input type="button" value="이동2" id="btn4">
+<!-- 이미지의 위치를 left:500, top:200의 위치로 이동시키고 이동완료 후 
+이미지가 사라지도록 해보세요. -->
+<input type="button" value="이동3" id="btn5">
+<!-- btn6을 클릭하면 이미지의 크기를 2배크게 해보세요. -->
+<input type="button" value="2배크게하기" id="btn6">
+<br>
+<img src="images/2.png" id="img1" style="position:relative; top:10px;">
+</body>
+<script type="text/javascript">
+	$("#btn3").click(function(){
+		//$("#img1").css({left:1000});
+		$("#img1").animate({
+			left:1000
+		},500); //0.5초간 left속성을 1000px로 변경해라.
+	});
+	$("#btn4").click(function(){
+		//$("#img1").css({left:1000});
+		$("#img1").animate({
+			left:1000
+		},500,function(){ //애니메이션 수행 완료 후 function 수행
+			$(this).css({left:0});
+		}); //0.5초간 left속성을 1000px로 변경해라.
+	});
+	$("#btn5").click(function(){
+		$("#img1").animate({
+			left:500,
+			top:200
+		},function(){
+			$(this).fadeOut(500);
+		});
+	});
+	$("#btn6").click(function(){
+		var w=$("#img1").css("width");
+		var h=$("#img1").css("height");
+		$("#img1").animate({
+			width: parseInt(w)*2,
+			height: parseInt(h)*2
+		});
+	});
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

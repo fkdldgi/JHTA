@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- 줄바꿈을 하면 자식노드를 줄바꿈으로 인식해서 undefined이 출력됨(브라우저마다 다름)-->
+<body><div><img src="images/1.png"><input type="button" value="노드찾기" id="btn1">
+</div>
+</body>
+<script>
+	var html=document.documentElement; //최상위 요소(루트태그:html);
+	console.log(html.tagName);
+	var head=html.firstChild;
+	console.log(head.tagName);
+	var body=html.lastChild;
+	console.log(body.tagName);
+	var div=body.firstChild;
+	console.log(div.tagName);
+	div.style.backgroundColor="orange";
+	var img=div.firstChild;
+	img.src="images/2.png";
+	img.style.border="3px solid white";
+	var input=img.nextSibling; //이웃하는 다음요소
+	input.value="아리랑";
+	input.type="text";
+	var img1=input.previousSibling; //이웃하는 이전요소
+	img1.style.backgroundColor="blue";
+</script>
+</html>

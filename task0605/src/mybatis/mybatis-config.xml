@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd"> <!-- DOCTYPE이 있어야 자동완성, 오타판별 등 가능 -->
+<configuration>
+  <environments default="development"> <!-- environment가 여러개일경우 default설정 -->
+    <environment id="development"> <!-- DBMS정보설정 -->
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED"> <!-- ConnectionPool을 얻어옴 -->
+        <property name="driver" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="scott"/>
+        <property name="password" value="tiger"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="mybatis/MyUsersMapper.xml"/> <!-- IO를 이용해서 읽어오므로 .으로 구분하는게 아닌 /로 구분 -->
+  	
+  </mappers>
+</configuration>

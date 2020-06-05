@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#frm").submit(function(e){
+			e.preventDefault(); //submit이 안됨
+	/* 		var pwd=$("input[name='pwd']").val();
+			var email=$("input[name='email']").val(); */
+			var params=$(this).serialize(); //pwd=thd153&email=11형태로 직렬화해줌
+			alert(params);
+			//ajax로 데이터 전송받기
+			$.ajax({
+				url:"../4/idFind.jsp",
+				//data:{"pwd":pwd,"email":email},
+				data:params,
+				success:function(data){
+					var using=$(data).find("using").text();
+					if(eval(using)==true){
+						let id=$(data).find("id").text();
+						$("#result").html("당신의 아이디:"+id);
+					}else{
+						$("#result").html("찾는 정보가 없습니다.");
+					}
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<!-- 웹접근성은 4번폴더보다 5번폴더처럼 ajax를 이용하는것을 권장(자바스크립트가 차단되어있는 사이트에서도
+ 최소한의 정보는 알 수 있다. -->
+<form id="frm" action="../4/idFind.jsp">
+	비밀번호 <input type="password" name="pwd"><br>
+	이메일 <input type="text" name="email"><br>
+	<input type="submit" value="아이디찾기">
+</form>
+<div id="result"></div>
+</body>
+</html>

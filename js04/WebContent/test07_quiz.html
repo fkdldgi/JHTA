@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div img{width: 300px;height:250px; opacity:0.3;}
+</style>
+<script>
+	window.onload=function(){
+		var imgs=document.getElementsByTagName("img");
+		for(var i=0; i<imgs.length; i++){
+			imgs[i].addEventListener("mouseover",function(e){
+				e.target.style.opacity=1;
+				//imgs[i].style.opacity=1; //i=4로 오류(해당 블록은 이벤트가 발생될 때 수행되므로)
+			});
+			imgs[i].addEventListener("mouseout",function(e){
+				e.target.style.opacity=0.3;
+			});
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 이미지에 마우스오버되면 이미지가 선명하게 보이도록 해보세요.-->
+<div>
+	<img src="images/1.jpg">
+	<img src="images/2.jpg">
+	<img src="images/3.jpg">
+	<img src="images/4.jpg">
+</div>
+</body>
+</html>

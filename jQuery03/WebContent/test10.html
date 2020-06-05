@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<!-- 해당조건에 맞는지 검사해보세요.
+취미는 하나이상 선택되어야만 가입가능 -->
+<form action="join.jsp">
+	아이디 (5~8자사이)<input type="text" name="id"><br>
+	비밀번호 <input type="password" name="pwd"><br>
+	비밀번호확인 <input type="password" name="pwd1"><br>
+	취미<br>
+	<input type="checkbox" value="여행" name="hobby">여행
+	<input type="checkbox" value="음악" name="hobby">음악
+	<input type="checkbox" value="독서" name="hobby">독서
+	<br>
+	<input type="submit" value="가입">
+</form>
+</body>
+<script type="text/javascript">
+	$("form").submit(function(e){
+		var len=parseInt($("input[name='id']").val().length);
+		var pwd=$("input[name='pwd']").val();
+		var pwd1=$("input[name='pwd1']").val();
+		var chklen=0;
+		//var chklen=$("input[name='hobby']:checked").length;
+		$("input[name='hobby']").each(function(){
+			var chk=$(this).prop("checked");
+			if(chk==true){
+				chklen++;
+			}
+		});
+		if(len<5 || len>8){
+			alert("5~8자사이의 아이디를 입력하세요");
+			e.preventDefault();
+		}else if(pwd==""){
+			alert("비밀번호를 입력하세요");
+			e.preventDefault();
+		}else if(pwd1==""){
+			alert("비밀번호확인을 입력하세요");
+			e.preventDefault();
+		}else if(pwd!=pwd1){
+			alert("비밀번호가 일치하지 않습니다");
+			e.preventDefault();
+		}else if(chklen<1){
+			alert("취미를 하나이상 선택하세요!");
+			e.preventDefault();
+		}
+	});
+</script>
+</html>

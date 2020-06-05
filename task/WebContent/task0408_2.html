@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>GUGUDAN</title>
+<script type="text/javascript">
+	function GUGU(){
+		
+		var dan=document.getElementById("dan").value;
+		var result=document.getElementById("result");
+		result.innerHTML="";
+		for(var i=1; i<=9; i++){
+			result.innerHTML+=dan+"*"+i+"="+(dan*i)+"<br>";
+		}
+	}
+</script>
+</head>
+<body>
+	단입력<input type="text" id="dan"><input type="button" id="btn" value="출력하기" onclick="GUGU()">
+	<div style="width:400px; height:500px; border:2px solid black; margin-top:20px;" id="result"></div>
+</body>
+</html>

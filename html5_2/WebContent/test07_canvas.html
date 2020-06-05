@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		var ctx=canvas.getContext("2d");
+		var img=new Image();
+		img.src="images/1.png";
+		img.onload=function(){ //이미지가 용량이 클경우 이미지가 메모리에 올라오면 실행하기위해 사용
+			ctx.drawImage(img,50,50);
+		}
+		ctx.fillStyle="green";
+		ctx.font="30px Arial";
+		ctx.fillText("Hello Canvas",10,70);
+		ctx.strokeStyle="red";
+		ctx.font="30px Arial";
+		ctx.strokeText("Hello Canvas",10,270);
+		
+		/*
+		호그리기 -> arc(x,y,반지름,시작각도,끝각도,반시계방향여부)
+		각도는 라디안각도로 표시해야 함
+		라디안각도 -> (파이/180)*각도
+		90의 라디안각도 -> (파이/180)*90
+		타원을 그릴때 라디안각도 -> Math.PI*2
+		반원을 그릴때 라디안각도 -> Math.PI
+		*/
+		ctx.arc(100,400,50,0,Math.PI*2,true); //타원그리기
+		ctx.fillStyle="blue";
+		ctx.fill(); //내부칠하기
+		ctx.beginPath(); //그릴 준비를 함(초기화)
+		
+		ctx.arc(300,400,50,0,Math.PI,true); //반원그리기
+		ctx.fillStyle="red";
+		ctx.fill(); //내부칠하기
+		ctx.beginPath();
+		
+		ctx.arc(600,400,50,0,Math.PI,false); //반원그리기
+		ctx.fillStyle="green";
+		ctx.fill(); //내부칠하기
+	}
+</script>
+</head>
+<body>
+<canvas id="canvas" width="700" height="700" style="border:1px solid green">
+</canvas>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr=null;
+	function idcheck(){
+		var id=document.getElementById("id").value;
+		if(id.trim()==""){ //trim: 공백삭제, 공백삭제 후 아이디를 입력하지 않았을경우 메시지띄움
+			//alert("아이디를 입력하세요!");
+			document.getElementById("idcheck").innerHTML="";
+			return;
+		}
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getResult;
+		xhr.open('get','idcheck.jsp?id='+id,true);
+		xhr.send();
+	}
+	function getResult(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var xml=xhr.responseXML;
+			var using=xml.getElementsByTagName("using")[0].firstChild.nodeValue;
+			var span=document.getElementById("idcheck");
+			//if(using=='true'){
+			if(eval(using)==true){
+				span.innerHTML="사용중인 아이디입니다.";
+			}else{
+				span.innerHTML="사용가능한 아이디입니다.";
+			}
+		}
+	}
+	/*
+		eval("문자열") - 문자열이 자바스크립트로 유효한지 자바스크립트 코드로 변환
+		예)
+		var a=eval('3+4');
+		console.log(a); //7이 출력됨
+	*/
+</script>
+</head>
+<body>
+<h1>회원가입</h1>
+<form method="post" action="joinOk.jsp">
+	아이디 <input type="text" name="id" id="id" onkeyup="idcheck()">
+	<!-- 
+	<input type="button" value="중복검사" onclick="idcheck()">
+	-->
+	<span id="idcheck"></span>
+	<br>
+	비밀번호 <input type="password" name="pwd"><br>
+	이메일 <input type="text" name="email"><br>
+	<input type="submit" value="가입">
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#shopping{width:1000px;height:300px; background-color:pink;}
+</style>
+<script>
+	window.onload=function(){
+		var selec=document.getElementById("selec");
+		selec.addEventListener("click",function(e){
+			var s=e.target.value;
+			var img1=document.getElementById("img1");
+			img1.src=s;
+		});
+		//담기버튼
+		var btn1=document.getElementById("btn1");
+		btn1.addEventListener("click",function(e){
+			var img1=document.getElementById("img1");
+			var div=document.getElementById("shopping");
+			if(img1.src!=null){
+				var img=document.createElement("img");
+				img.src=img1.src;
+				img.addEventListener("dblclick",function(e){
+					e.target.remove(this); //방법1
+					//img.remove(this); //방법2
+				});
+				div.appendChild(img);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<h1>인형가게</h1>
+<select size="4" id="selec">
+	<option value="images/1.png">소년</option>
+	<option value="images/2.png">커피</option>
+	<option value="images/3.png">강아지1</option>
+	<option value="images/4.png">강아지2</option>
+</select>
+<img src="" id="img1"><br><br><br>
+<input type="button" value="담기" id="btn1"><br><br>
+<div id="shopping">
+</div>
+
+</body>
+</html>

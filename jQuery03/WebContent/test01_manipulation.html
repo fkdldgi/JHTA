@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.border{
+		border: 1px solid red;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var n=1;
+		$("#btn1").on('click',function(){
+			$("#imglist").append("<img src='images/"+ n++ +".png' class='imgs'>");
+		});
+		$("#btn2").on('click',function(){
+			//img요소중 맨 마지막 요소 제거하기
+			//$("#imglist img").last().remove();
+			$("#imglist img").first().remove();
+			$("#imglist img").remove();
+		});
+		var a=1;
+		$("#btn3").on('click',function(){
+			$("#imglist").prepend("<img src='images/"+ a++ +".png' class='imgs'>");
+			if(a==20) a=0;
+		});
+		var b=1;
+		$("#btn4").on('click',function(){
+			$("#btnlist").append("<input type='button' value='버튼"+b+"' class='btn'>");
+			b++
+		});
+		$("#btnlist").on('click','.btn',function(){
+			alert($(this).val()+"를 클릭했어요!");
+		});
+		$("#imglist").on('mouseover mouseout','.imgs',function(){
+			$(this).toggleClass("border");
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="이미지추가" id="btn1">
+<input type="button" value="이미지제거" id="btn2">
+<input type="button" value="이미지추가2" id="btn3">
+<div id="imglist">
+</div>
+<input type="button" value="버튼추가" id="btn4">
+<div id="btnlist">
+</div>
+</body>
+</html>

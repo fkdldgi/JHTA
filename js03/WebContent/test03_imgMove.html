@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#img{position:relative; left:0px;top:10px;}
+</style>
+<script>
+	var tid;
+	function gogo1(){
+		tid=setInterval(move1,200);
+	}
+	var pos=0;
+	function move1(){
+		pos+=50;
+		var img=document.getElementById("img");
+		img.style.left=pos+"px";
+		if(pos==1000){
+			clearInterval(tid);
+		}
+	}
+
+	function gogo2(){
+		tid=setInterval(move2,200);
+	}
+	function move2(){
+		pos+=50;
+		var img=document.getElementById("img");
+		img.style.left=pos+"px";
+		if(pos==1000){
+			clearInterval(tid);
+			tid=setInterval(move3,200);
+		}
+	}
+	function move3(){
+		pos-=50;
+		var img=document.getElementById("img");
+		img.style.left=pos+"px";
+		if(pos==0){
+			clearInterval(tid);
+			tid=setInterval(move2,200);
+		}
+	}
+</script>
+</head>
+<body>
+<img src="images/1.png" id="img"><br>
+<input type="button" value="이미지이동" onclick="gogo1()">
+<input type="button" value="이미지이동" onclick="gogo2()">
+</body>
+</html>

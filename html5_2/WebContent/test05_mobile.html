@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var smartPhone=["iphone","ipad","android","blackberry","webos","opera mini",
+		"sonyerricorn","windows ce","opera mobi","lemobile"];
+	var mobile=false;
+	for(var i in smartPhone){
+		if(navigator.userAgent.toLowerCase().match(new RegExp(smartPhone[i]))){
+			mobile=true;
+			break;
+		}
+	}
+	if(mobile){
+		location.href="mobile.html"
+	}
+</script>
+</head>
+<body>
+<h1>우리우리 쇼핑몰</h1>
+<div>
+	<h2>데스크탑용 홈페이지입니다</h2>
+	<img src="images/1.png">
+</div>
+</body>
+</html>

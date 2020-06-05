@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<style type="text/css">
+#wrap{
+	position:relative;
+	width: 800px;
+	height: 500px;
+	background-color: lightgray;
+}
+#slider{
+	width:90%;
+	height: 20%;
+	opacity:0.7;
+	background-color: gray;
+	z-index:10;
+	margin:auto;
+	padding:10px;	
+}
+#slider img{
+	width:24%;
+	height: 100px;
+}
+#main{
+	position:relative;
+	margin: auto;
+	width: 90%;
+	height: 300px;
+}
+#main #img_wrap img{
+	position:absolute;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	margin-top: 30px;
+	display:none;
+}
+#main #text_wrap h1{
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	color:white;
+	display:none;
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="slider">
+		<img src="images/1.png" class="img" id="img1"><p style="display:none">Beautiful Picture1</p>
+		<img src="images/2.png" class="img" id="img2"><p style="display:none">Beautiful Picture2</p>
+		<img src="images/3.png" class="img" id="img3"><p style="display:none">Beautiful Picture3</p>
+		<img src="images/4.png" class="img" id="img4"><p style="display:none">Beautiful Picture4</p>
+	</div>
+	<div id="main">
+		<div id=img_wrap>
+			<img id="mainImg">
+		</div>
+		<div id="text_wrap">
+			
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var text="";
+	$(".img").hover(function(e){
+		if(e.target.id=="img1"){
+			$("#img1").css("opacity",0.3);
+			$("#mainImg").prop("src",$("#img1").prop("src"));
+			text=$("#img1").next().text();
+		}else if(e.target.id=="img2"){
+			$("#img2").css("opacity",0.3);
+			$("#mainImg").prop("src",$("#img2").prop("src"));
+			text=$("#img2").next().text();
+		}else if(e.target.id=="img3"){
+			$("#img3").css("opacity",0.3);
+			$("#mainImg").prop("src",$("#img3").prop("src"));
+			text=$("#img3").next().text();
+		}else{
+			$("#img4").css("opacity",0.3);
+			$("#mainImg").prop("src",$("#img4").prop("src"));
+			text=$("#img4").next().text();
+		}
+		$("#text_wrap").html("<h1>"+text+"</h1>");
+		$("#mainImg").fadeIn(500,function(){
+			$("#text_wrap h1").slideDown(1000);
+		});
+	},function(e){
+		$("#mainImg").prop("src","");
+		if(e.target.id=="img1"){
+			$("#img1").css("opacity",1);
+		}else if(e.target.id=="img2"){
+			$("#img2").css("opacity",1);
+		}else if(e.target.id=="img3"){
+			$("#img3").css("opacity",1);
+		}else{
+			$("#img4").css("opacity",1);
+		}
+		$("#text_wrap").html("");
+		$("#mainImg").css("display","none");
+	});
+</script>
+</html>

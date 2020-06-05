@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload=function(){
+		var btn1=document.getElementById("btn1");
+		btn1.onclick=function(){
+			alert("안녕!");
+		}
+		btn1.onclick=function(){ //이벤트등록은 한번만
+			alert("hello");
+		}
+		var btn2=document.getElementById("btn2");
+		//btn2.addEventListener("이벤트명",호출할 함수);
+		btn2.addEventListener("click",function(e){ //on이 빠진 click만 기입
+			alert("헬로~");
+		});
+		btn2.addEventListener("click",test1);
+		function test1(){
+			alert("반가워요!!!!!");
+		}
+		const btn3=document.getElementById("btn3");
+		btn3.addEventListener("click",function(e){
+			//이벤트리스너 삭제하기
+			//btn2.removeEventListener("이벤트명",함수);
+			btn2.removeEventListener("click",test1);
+			alert("이벤트리스너가 삭제되었어요~~")
+		});
+		var img1=document.getElementById("img1");
+		img1.addEventListener("mouseover",function(e){ //방법1
+			img1.src="images/2.png";
+		});
+		img1.addEventListener("mouseout",function(e){ //방법2
+			e.target.src="images/1.png"; //e.target=img1
+		});
+	}
+</script>
+</head>
+<body>
+<input type="button" value="클릭1" id="btn1">
+<input type="button" value="클릭2" id="btn2">
+<input type="button" value="이벤트리스너 제거하기" id="btn3">
+<!-- 이미지에 마우스오버되면 2.png로 마우스 아웃되면 1.png로 이미지가 변경되도록 해보세요.-->
+<img src="images/1.png" id="img1">
+</body>
+</html>

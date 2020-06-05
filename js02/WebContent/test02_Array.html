@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02_Array.html</title>
+<script type="text/javascript">
+	var arr=[];
+	function addArr(){
+		var name=document.getElementById("name");
+		arr.push(name.value);
+		name.value="";
+		name.focus();
+	}
+	function printArr(){
+		var result=document.getElementById("result");
+		result.innerHTML="";
+		for(var i=0; i<arr.length; i++){
+			result.innerHTML+=arr[i]+"<br>"
+		}
+	}
+</script>
+</head>
+<body>
+이름<input type="text" id="name">
+<input type="button" value="저장" onclick="addArr()">
+<input type="button" value="출력" onclick="printArr()">
+<div id="result">
+</div>
+</body>
+</html>

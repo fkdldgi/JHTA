@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_Quiz.html</title>
+<!-- 자바스크립트 파일 포함하기 -->
+<script type="text/javascript" src="js/mymath.js"></script>
+<script type="text/javascript">
+	function Circle(){
+		var r=Number(document.getElementById("r").value);
+		var result=getCircleArea(r);
+		var div=document.getElementById("result");
+		div.innerHTML="<span style='color:red'>원의넓이: "+result+"<span>";
+	}
+</script>
+</head>
+<body>
+<!-- 반지름 입력받아 원의 넓이(사용자정의함수) 구해서 div에 출력 -->
+반지름<input type="text" id="r">
+<input type="button" value="원의넓이" onclick="Circle()">
+<br>
+<div id="result">
+</div>
+</body>
+</html>

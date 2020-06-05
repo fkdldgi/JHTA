@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var ctx=null;
+	var ball={x:40,y:10,moveX:5,moveY:5}; //공의 좌표 이동할 폭
+	window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		ctx=canvas.getContext("2d");
+		ctx.fillStyle="red";
+		setInterval(function(){
+			ctx.clearRect(0,0,500,500); //그려져있던 영역을 지움
+			ctx.beginPath(); //새로운 시작점 설정을 위함
+			ctx.arc(ball.x,ball.y,10,0,Math.PI*2);//반지름10인 타원그리기
+			ctx.fill();
+			ball.x+=ball.moveX;
+			ball.y+=ball.moveY;
+			if((ball.x-10)<0 || (ball.x+10)>500){
+				ball.moveX=-ball.moveX;
+			}
+			if((ball.y-10)<0 || (ball.y+10)>500){
+				ball.moveY=-ball.moveY;
+			}
+		},50);
+		
+	}
+</script>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border:1px solid #aaa">
+</canvas>
+</body>
+</html>

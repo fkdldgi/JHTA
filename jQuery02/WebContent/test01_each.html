@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("p").css("background-color","orange");
+		//var html=$("p").html(); //p태그가 여러개일경우 맨첫번째만 가져옴
+		//alert(html);
+		$("p").each(function(n){ //p요소의 갯수만큼 루프를 돌면서 function을 수행(n은 배열첨자:index)
+			var html=$(this).html();
+			//alert(n+":"+html);
+		});
+		var ari=["나를 버리고 가시는 님은","십리도 못가서 발병난다","아리랑 아리랑~"];
+		//next버튼을 클릭하면 배열의 텍스트값들이 p요소에 보이도록 해보세요
+		$("#btnNext").click(function(){
+			$("p").each(function(n){
+				var html=$(this).html(ari[n]);
+			})
+		});
+		//방법1
+		/* var n=5;
+		$("#btnNext1").click(function(){
+			$("img").each(function(){
+				$(this).prop("src","images/"+ n++ +".png");
+			});
+		}); */
+		
+		//방법2
+		var imgs=["images/5.png","images/6.png","images/7.png","images/8.png"];
+		$("#btnNext1").click(function(){
+			$("img").each(function(i){
+				$(this).prop("src",imgs[i]);
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="next" id="btnNext">
+<p>아리랑 아리랑</p>
+<p>아라리요~~~</p>
+<p>아리랑 고개로 넘어간다...</p>
+<!-- 다음이미지버튼을 클릭하면 5.png, 6.png,...가 보여지도록 해보세요. -->
+<input type="button" value="다음이미지" id="btnNext1">
+<img src="images/1.png">
+<img src="images/2.png">
+<img src="images/3.png">
+<img src="images/4.png">
+</body>
+</html>

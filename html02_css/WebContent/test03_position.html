@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	*{margin:0px;padding:0px;}
+	div{width:200px; height:200px;}
+	div#div1{background-color:blue;
+	position:absolute; left:0px; top:0px; z-index:3}
+	div#div2{background-color:green;
+	position:absolute; left:150px; top:50px; z-index:2}
+	div#div3{background-color:orange;
+	position:absolute; left:300px; top:100px; z-index:1}
+</style>
+</head>
+<body>
+<div id="wrap" 
+   style="position:absolute; width:800px; height:700px;border:3px solid gray; 
+   left:200px;top:0px"><!-- 인라인 스타일이 헤더의 스타일보다 우선순위(덮어쓰기가능) -->
+	<div id="div1">
+	div1
+	</div>
+	<div id="div2">
+	div2
+	</div>
+	<div id="div3">
+	div3
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.mystyle{border:2px solid green; background-color: green;}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			$("#img1").addClass("mystyle");
+		});
+		$("#btn2").click(function(){
+			$("#img1").removeClass("mystyle");
+		});
+		/*
+		//방법1
+		$("#mybox img").mouseover(function(){
+			$(this).addClass("mystyle");
+		});
+		$("#mybox img").mouseout(function(){
+			$(this).removeClass("mystyle");
+		});
+		*/
+		
+		//방법2
+		$("#mybox img").hover(function(){
+			$(this).addClass("mystyle");
+		},function(){			
+			$(this).removeClass("mystyle");
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="클래스적용" id="btn1">
+<input type="button" value="클래스제거" id="btn2">
+<img src="images/1.png" id="img1"><br>
+<div id="mybox">
+	<img src="images/2.png">
+	<img src="images/3.png">
+	<img src="images/4.png">
+</div>
+</body>
+</html>

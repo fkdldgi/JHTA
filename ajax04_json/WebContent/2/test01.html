@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr=null;
+	function getInfo(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getResult;
+		xhr.open('get','server.jsp',true);
+		xhr.send();
+	}
+	function getResult(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var data=xhr.responseText;
+			//alert(data);
+			//var json=eval("("+data+")"); //구식
+			var json=JSON.parse(data); //현대식
+			var div=document.getElementById("result");
+			div.innerHTML="아이디:"+json.id+"<br>"+
+						  "이름:"+json.name+"<br>"+
+						  "이메일:"+json.email+"<br>";
+		}
+	}
+</script>
+</head>
+<body>
+<input type="button" value="회원정보" onclick="getInfo()">
+<div id="result"></div>
+</body>
+</html>

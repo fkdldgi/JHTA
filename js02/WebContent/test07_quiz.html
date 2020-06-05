@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_quiz.html</title>
+<style>
+	#main{width:300px; height: 200px; background-color: white; border:2px solid black;}
+</style>
+<script>
+	function changeStyle(){
+		var c=document.getElementById("c");
+		var w=document.getElementById("w");
+		var h=document.getElementById("h");
+		var div=document.getElementById("main");
+		div.style.backgroundColor=c.value;
+		div.style.width=w.value+"px";
+		div.style.height=h.value+"px";
+	}
+</script>
+</head>
+<body>
+색상<input type="text" id="c"><br>
+가로<input type="text" id="w"><br>
+세로<input type="text" id="h"><br>
+<input type="button" value="적용" id="submit" onclick="changeStyle()">
+<div id="main">
+</div>
+</body>
+</html>

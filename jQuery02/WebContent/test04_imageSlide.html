@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		setInterval(function(){
+			//1초간 위치를 -140px으로 이동해보세요.
+			var moveLeft=parseInt($("#imgslide").css("left"))-140;
+			$("#imgslide").animate({
+				left:moveLeft
+			},500,function(){
+				if(moveLeft<=-980){
+					$("#imgslide").css("left",700);
+				}
+			});
+		},1000);
+	});
+</script>
+<style>
+	*{margin: 0px;padding: 0px;}
+	#parent{
+		width:700px;height: 200px;background-color: orange;
+		position: relative;left:200px;top:30px;overflow:hidden;
+	}
+	#imgslide{
+		width:980px;height: 200px;position: absolute;left:0px;
+	}
+	#imgslide ul li img{width:136px;height: 196px;margin:2px;}
+	#imgslide ul li{float: left;list-style: none;}	
+</style>
+</head>
+<body>
+<div id="parent">
+	<div id="imgslide">
+		<ul>
+			<li><img src="images/001.jpg"></li>
+			<li><img src="images/002.jpg"></li>
+			<li><img src="images/003.jpg"></li>
+			<li><img src="images/004.jpg"></li>
+			<li><img src="images/005.jpg"></li>
+			<li><img src="images/006.jpg"></li>
+			<li><img src="images/007.jpg"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

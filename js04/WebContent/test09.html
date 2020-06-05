@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="버튼생성" id="button">
+<div id="btnList">
+</div>
+<!-- 이미지생성버튼을 클릭하면 이미지 5개를 한꺼번에 생성 후 마우스가 오버되면 이미지에 보더가 생기도록 해보세요.-->
+<input type="button" value="이미지생성" id="button2">
+<div id="imgList">
+</div>
+</body>
+<script>
+	var i=0;
+	var button=document.getElementById("button");
+	button.addEventListener("click",function(){
+		//버튼을 생성해서 btnList에 붙여보세요.
+		var btn=document.createElement("input");
+		btn.type="button";
+		btn.value="버튼"+i++;
+		var div=document.getElementById("btnList");
+		// btn.addEventListener("click",function(e){
+		// 	alert(this.value+"를 클릭했어요.");
+		// });
+		btn.onclick=function(e){
+			alert(e.target.value+"를 클릭했어요");
+		}
+		div.appendChild(btn);
+	});
+
+	var button2=document.getElementById("button2");
+	button2.addEventListener("click",imgTest);
+	function imgTest(){
+		var div=document.getElementById("imgList");
+		for(var i=1; i<=5; i++){
+			var img=document.createElement("img");
+			img.src="images/"+i+".png";
+			img.addEventListener("mouseover",function(e){
+				e.target.border="2px soild red";
+			});
+			img.addEventListener("mouseout",function(e){
+				e.target.border="none";
+			});
+			div.appendChild(img);
+		}
+		//이벤트리스너 삭제
+		button2.removeEventListener("click",imgTest);
+	}
+	// var div=document.getElementById("imgList");
+	// for(var i=0; i=div.childElementCount; i++){
+	// 	div.addEventListener("mouseover",function(e){
+
+	// 	});
+	// }
+</script>
+</html>

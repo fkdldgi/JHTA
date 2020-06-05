@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var imgArr=["images/3.png","images/4.png","images/5.png"];
+	function changeImg(){
+		var arr=document.getElementsByName("dog");
+		var dogImg=document.getElementById("dogImg");
+		for(var i=0; i<arr.length; i++){
+			if(arr[i].checked==true){
+				dogImg.src=imgArr[i];
+				break;
+			}
+		}
+		
+	}
+</script>
+</head>
+<body>
+<form>
+	강아지1<input type="radio" name="dog" onclick="changeImg()">
+	강아지2<input type="radio" name="dog" onclick="changeImg()">
+	강아지3<input type="radio" name="dog" onclick="changeImg()"><br>
+	<img src="" id="dogImg">
+</form>
+</body>
+</html>

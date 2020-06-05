@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<style type="text/css">
+.btn{
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	background-color: green;
+}
+#div1{
+	margin-top:20px;
+	width:600px;
+	height:200px;
+	background-color: orange;
+	border:1px solid black;
+	padding: 5px;
+}
+</style>
+</head>
+<body>
+<button class="btn" id="btn1" value="도서상품은 JAVA입니다">도서</button>
+<button class="btn" id="btn2" value="오늘의 영화는 어벤져스입니다">영화</button>
+<button class="btn" id="btn3" value="1일1깡">음악</button>
+<div id="div1"></div>
+</body>
+<script type="text/javascript">
+	$(".btn").click(function(e){
+		if(e.target.id=="btn1"){
+			$("#div1").html($("#btn1").val());
+		}else if(e.target.id=="btn2"){
+			$("#div1").html($("#btn2").val());
+		}else{
+			$("#div1").html($("#btn3").val());
+		}
+	});
+</script>
+</html>

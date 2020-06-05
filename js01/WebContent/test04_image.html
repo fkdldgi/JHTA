@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_image.html</title>
+<script type="text/javascript">
+	var num1=1;
+	function changeImg(){
+		img1.src="images/"+ (++num1)+".png";
+		if(num1>=20){
+			num1=0;
+		}
+	}
+
+	function tranceImg1(){
+		var temp="";
+		var img2=document.getElementById("img2").src;
+		var img3=document.getElementById("img3").src;
+		temp=img2;
+		img2=img3;
+		img3=temp;
+	}
+	
+	var cnt=0;
+	function tranceImg2(){
+		cnt++;
+		var img2=document.getElementById("img2");
+		var img3=document.getElementById("img3");
+		if(cnt%2==1){
+			img2.src="images/2.png";
+			img3.src="images/1.png";
+		}else{
+			img2.src="images/1.png";
+			img3.src="images/2.png";
+		}
+	}
+</script>
+</head>
+<body>
+<img src="images/1.png" id="img1">
+<input type="button" value="이미지변경" onclick="changeImg()"><br>
+<img src="images/1.png" id="img2">
+<img src="images/2.png" id="img3">
+<br>
+<input type="button" value="이미지바꾸기" onclick="tranceImg2()">
+</body>
+</html>

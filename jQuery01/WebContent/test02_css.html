@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			$("#div1").css("background-color","red");
+			$("#div1 img").css("width",300);
+			$("#div1 img").css("height","300px");
+		});
+		
+		$("#btn2").click(function(){
+			//방법1
+			/* $("#div1 img").css({
+				"background-color":"green",
+				"width":300,
+				"height":300
+			}); */
+			
+			//방법2
+			$("#div1").css({
+				backgroundColor:"green",
+				width:300,
+				height:300
+			});
+		});
+		
+		$("#btn3").click(function(){
+			$("#div1 img").css({
+				width:200,
+				height:200
+			});
+		});
+		
+		$("#btn4").click(function(){
+			var w=$("#div1").css("width");
+			var bgColor=$("#div1").css("background-color");
+			alert("#div1 width값:"+w+",bgcolor:"+bgColor);
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="css적용1" id="btn1">
+<input type="button" value="css적용2" id="btn2">
+<!-- btn3을 클릭하면 img의 크기를 200px * 200px로 변경해보세요 -->
+<input type="button" value="이미지크기변경" id="btn3">
+<input type="button" value="css값꺼내오기1" id="btn4">
+<div id="div1">
+	<h1>Hello jQuery</h1>
+	<img src="images/1.png">
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

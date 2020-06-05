@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function showDate(){
+		//var d=new Date(); //현재날짜와 시간에 대한 정보를 갖는 객체 생성
+		//var d=new Date(2020,3,9);
+		var d=new Date("2020/04/09");
+		var y=d.getFullYear(); //년
+		var m=d.getMonth()+1; //월
+		var day=d.getDate(); //일
+		var w=d.getDay(); //요일 얻어오기
+		/*
+		switch(w){
+			case 0: w="일";break;
+			case 1: w="월";break;
+			case 2: w="화";break;
+			case 3: w="수";break;
+			case 4: w="목";break;
+			case 5: w="금";break;
+			case 6: w="";break;
+		}*/
+		var arr=["일","월","화","수","목","금","토"];
+		var div=document.getElementById("d");
+		div.innerHTML=y+"년"+m+"월"+day+"일"+arr[w]+"요일";
+		
+		var t=new Date();
+		var h=t.getHours();
+		var mm=t.getMinutes();
+		var s=t.getSeconds();
+		var div2=document.getElementById("t");
+		div2.innerHTML=h+"시"+mm+"분"+s+"초";
+	}
+	</script>
+</head>
+<body onload="showDate()"> <!-- onload는 body의 동작이 다 끝나면 동작 -->
+<div id="d">
+</div>
+<!-- div#t에 현재 시간을 구해서 출력되도록 해보세요. -->
+<div id="t">
+
+</div>
+</body>
+
+</html>

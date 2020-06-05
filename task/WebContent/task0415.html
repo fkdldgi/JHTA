@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+	body{
+		text-align:center;
+		overflow: hidden;
+		background: linear-gradient(to right,#14148C,#A0A0C8);
+	}
+	#clock{
+		width: 400px;
+		height: 400px;
+		background-color: #E8F5FF;
+		border: 2px solid black;
+		border-radius: 50%;
+		position: relative;
+		margin: auto;
+	}
+	#clock .num{
+		--r:0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		font-size: 30px;
+		transform: rotate(var(--r));
+	}
+	#clock .num1{--r:30deg;}
+	#clock .num2{--r:60deg;}
+	#clock .num3{--r:90deg;}
+	#clock .num4{--r:120deg;}
+	#clock .num5{--r:150deg;}
+	#clock .num6{--r:180deg;}
+	#clock .num7{--r:210deg;}
+	#clock .num8{--r:240deg;}
+	#clock .num9{--r:270deg;}
+	#clock .num10{--r:300deg;}
+	#clock .num11{--r:330deg;}
+	
+	/*오리지날시계 시침,분침,초침*/
+	#clock .time{
+		--r:0;
+		position: absolute;
+		bottom: 50%;
+		left:50%;
+		border:1px solid white;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		transform-origin: bottom;
+		transform: translateX(-50%) rotate(calc(var(--r)*1deg));
+		z-index: 10;
+	}
+	#clock .time.hour{
+		background-color: black;
+		width:11px;
+		height: 30%;
+	}
+	#clock .time.minute{
+		background-color: black;
+		width:7px;
+		height: 40%;
+	}
+	#clock .time.second{
+		background-color: red;
+		width:3px;
+		height: 45%;
+	}
+	#clock #center{
+		position: absolute;
+		background-color: black;
+		top:50%;
+		left:50%;
+		width: 15px;
+		height: 15px;
+		transform: translate(-50%,-50%);
+		border-radius:50%;
+		z-index:11;
+	}
+
+	/*상단 디지털시계 */
+	h1{color:white}
+	label{font-size: 50px;}
+	#clock2{
+		width: 600px;
+		height: 150px;
+		margin:auto;
+		margin-top:20px;
+	}
+	#clock2 .time2{
+		display: inline-block;
+		width: 20%;
+		height: 100px;
+		line-height: 100px;
+		margin-left:10px;
+		font-size:50px;
+	}
+
+	/*알람버튼*/
+	#alarm{margin-top: 20px;}
+	#alarm .btn{
+		width: 200px;
+		height: 50px;
+		color: #14148C;
+		font-size: 25px;
+		background-color: white;
+		border:2px solid #14148C;
+		border-radius: 5px;
+	}
+	/*알람 애니메이션*/
+	@keyframes watch {
+		0% {transform: translate(0);}
+		20% {transform: translate(-2px, 2px);}
+		40% {transform: translate(-2px, -2px);}
+		60% {transform: translate(2px, 2px);}
+		80% {transform: translate(2px, -2px);}
+		100% {transform: translate(0);}
+	}
+	@keyframes watch {
+		0% {transform: translate(0);}
+		20% {transform: translate(-2px, 2px);}
+		40% {transform: translate(-2px, -2px);}
+		60% {transform: translate(2px, 2px);}
+		80% {transform: translate(2px, -2px);}
+		100% {transform: translate(0);}
+	}
+	
+</style>
+</head>
+<body>
+<h1>알람시계</h1>
+<div id="clock2">
+	<div class="time2 hour2"></div>
+	<label>:</label>
+	<div class="time2 minute2">01</div>
+	<label>:</label>
+	<div class="time2 second2">01</div>
+</div>
+<div id="clock">
+	<div id="center"></div>
+	<div class="time hour"></div>
+	<div class="time minute"></div>
+	<div class="time second"></div>
+	<div class="num num1">1</div>
+	<div class="num num2">2</div>
+	<div class="num num3">3</div>
+	<div class="num num4">4</div>
+	<div class="num num5">5</div>
+	<div class="num num6">6</div>
+	<div class="num num7">7</div>
+	<div class="num num8">8</div>
+	<div class="num num9">9</div>
+	<div class="num num10">10</div>
+	<div class="num num11">11</div>
+	<div class="num num12">12</div>
+</div>
+<div id="alarm">
+	<input type="button" value="알람설정" class="btn aSetup" onclick="alarmSetUp()">
+	<input type="button" value="알람중지" class="btn aStop" onclick="stopClock()">
+</div>
+
+</body>
+<script>
+	//하단 오리지날 시계
+	setInterval(moveClock,1000);
+	
+	const hTarget=document.querySelector("#clock .time.hour");
+	const mTarget=document.querySelector("#clock .time.minute");
+	const sTarget=document.querySelector("#clock .time.second");
+	
+	function moveClock(){
+		const date=new Date();
+		const second=date.getSeconds()/60;
+		const minute=(date.getMinutes()+second)/60;
+		const hour=(date.getHours()+minute)/12;
+		
+		setR(sTarget,second);
+		setR(mTarget,minute);
+		setR(hTarget,hour);
+	}
+	function setR(target,value){
+		target.style.setProperty("--r",value*360);
+	}
+	moveClock();
+	
+	//상단 디지털시계
+	setInterval(moveClock2,1000);
+
+	const hTarget2=document.querySelector("#clock2 .time2.hour2");
+	const mTarget2=document.querySelector("#clock2 .time2.minute2");
+	const sTarget2=document.querySelector("#clock2 .time2.second2");
+
+	var alarmTime=[]; //popup0415.html에서 얻어온 값을 담을 배열
+	function moveClock2(){
+		const date=new Date();
+		const second=date.getSeconds();
+		const minute=date.getMinutes();
+		const hour=date.getHours();
+		
+		const getH=numCheck(hour,2);
+		const getM=numCheck(minute,2);
+		const getS=numCheck(second,2);
+
+		hTarget2.innerHTML=getH;
+		mTarget2.innerHTML=getM;
+		sTarget2.innerHTML=getS;
+
+		//알람이 구동 될 부분
+		var getTime=[];
+		var clock=document.getElementById("clock");
+		if(alarmTime.length!=0){
+			for(let i=0; i<alarmTime.length; i++){
+				getTime.push(alarmTime[i]);
+				var timeArray=getTime[i];
+				if(timeArray.length!=0){
+					var ampm=timeArray[0];
+					var h=timeArray[1];
+					var m=timeArray[2];
+				}
+				if(ampm=="오후"){
+					h=parseInt(h);
+					h+=12;
+				}
+				if(h==hour && m==minute){
+					alarmTime.splice(i,1);
+					clock.style.setProperty("animation","watch 1s linear infinite both");
+					alert("알람이요 알람~!~!~!~!~!~!~!~!~!");
+				}
+			}
+		}
+	}
+	moveClock2();
+
+	//알람중지버튼
+	function stopClock(){
+		clock.style.setProperty("animation","");
+		alert("알람이 중지되었습니다~~~~~~~~");
+	}
+	
+	//시간,분,초가 한자리수일경우 두자리수를 맞추기 위한 함수
+	function numCheck(n,len){
+		n=n+"";
+		return n.length>=len ? n: '0'+n;
+	}
+	//버튼색 변경
+	var btn=document.getElementsByClassName("btn");
+	for(let i=0; i<btn.length; i++){
+		btn[i].addEventListener("mouseover",function(){
+			btn[i].style.backgroundColor="#14148C";
+			btn[i].style.color="white";
+		});
+		btn[i].addEventListener("mouseout",function(){
+			btn[i].style.backgroundColor="white";
+			btn[i].style.color="#14148C";
+		});
+	}
+	
+	//알람설정버튼
+	function alarmSetUp(){
+		window.open("popup0415.html","","width=540 height=300");
+	}
+	//알람삭제버튼
+	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

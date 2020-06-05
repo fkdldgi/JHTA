@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_blocks.html</title>
+<style>
+	#div1{background-color: green; width:500px}
+	#a1{background-color: red; width:500px;}/*width,height 속성을 갖지 못한다.*/
+	#img1{width:400px;height:400px;}
+</style>
+</head>
+<body>
+<!-- 
+HTML요소에는 블록레벨요소와 인라인레벨요소가 있다.
+1. 블록레벨요소
+	- 자동줄바꿈이됨.
+	- 한줄 전체가 영역으로 설정됨
+	- div,p,h1,li,....
+2. 인라인레벨요소
+	- 자동줄바꿈이 안됨.
+	- 콘텐츠만큼만 영역으로 설정됨
+	- a,span,img,...
+ -->
+<div id="div1">div(블록요소)</div>
+<a href="test01.html" id="a1">a(인라인요소)</a>
+<img src="images/1.png" id="img1">
+</body>
+</html>

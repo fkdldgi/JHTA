@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_css.html</title>
+<style>
+	#main{width:1200px;height: 800px;background-color: pink; margin:auto;}
+	#main div{padding:100px;}
+	#event{width:300px;height:200px;border:2px solid green;
+	position:absolute; right:300px; top:200px; background-color: white;
+	display:none;} /*display:none; 화면에 안보이기*/
+</style>
+<script>
+	function showEvent(){
+		var div=document.getElementById("event");
+		div.style.display="block"; //div화면에 보이기 
+	}
+	function closeEvent(){
+		var div=document.getElementById("event");
+		div.style.display="none"; //div화면에 안보이기
+	}
+</script>
+</head>
+<body>
+<div id="main">
+	<div>
+		<h1>우리우리 영화관</h1>
+		<p>
+			재미있는 영화가 상영중이에요~~~<br>
+			<img src="images/002.jpg"><br>
+			<!-- 함수를 호출하려면 앞에 javascript:를 붙여서 호출-->
+			<a href="javascript:showEvent()" on>이벤트</a>
+		</p>
+	</div>
+</div>
+<div id="event">
+	<div>
+		<!-- 닫기버튼을 클릭하면 화면에서 event가 안보이게 해보세요. -->
+		<a href="javascript:closeEvent()">닫기</a>
+		<ul>
+			<li>이벤트하나</li>
+			<li>이벤트둘</li>
+			<li>이벤트셋</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

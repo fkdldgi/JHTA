@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* var xhr=null;
+	function getList(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getListOk;
+		xhr.open('get','server.jsp',true);
+		xhr.send();
+	}
+	function getListOk(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var data=xhr.responseText;
+			var json=JSON.parse(data);
+			var div=document.getElementById("list");
+			var text="";
+			for(var i=0;i<json.length;i++){
+				text+="아이디:"+json[i].id+",비밀번호:"+json[i].pwd+",나이:"+json[i].age+"<br>";
+			}
+			div.innerHTML=text;
+		}
+	} */
+	var xhr=null;
+	function getList(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getListOk;
+		xhr.open('get','server1.jsp',true);
+		xhr.send();
+	}
+	function getListOk(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var data=xhr.responseText;
+			var json=JSON.parse(data);
+			var div=document.getElementById("list");
+			var text="";
+			for(var i=0;i<json.length;i++){
+				text+="번호:"+json[i].num+",아이디:"+json[i].id+",댓글:"+json[i].comments+"<br>";
+			}
+			div.innerHTML=text;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- ajax를 사용해서 전체 회원목록 div에 출력하기 -->
+<input type="button" value="회원목록" onclick="getList()">
+<div id="list"></div>
+</body>
+</html>

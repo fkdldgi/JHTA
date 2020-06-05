@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01.html</title>
+<script>
+	//alert("환영합니다.");
+	function showMsg(){
+		alert("반갑습니다!");
+	}
+	function changeImg(){
+		//html요소중 id속성값이 img1인 요소(객체) 얻어오기
+		var img1=document.getElementById("img1");
+		//src속성값 변경하기
+		img1.src="images/2.png";
+		var btn1=document.getElementById("btn1");
+		btn1.value="button1";
+	}
+</script>
+</head>
+<body>
+<input type="button" value="버튼1" onclick="showMsg()" id="btn1"><br>
+<img src="images/1.png" id="img1">
+<input type="button" value="이미지변경" onclick="changeImg()">
+</body>
+</html>

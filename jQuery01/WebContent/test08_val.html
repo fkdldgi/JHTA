@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#name").val("홍길동");
+		$("#btn1").click(function(){
+			var name=$("#name").val(); //value속성값 얻어오기
+			alert("입력된 이름:"+name);
+		});
+		$("#div").html("<img src='images/1.png'>");
+		$("#btn2").click(function(){
+			$("#div").html("<h1>반가워요~~~</h1><img src='images/2.png'>"); //html로 출력
+			//$("#div").text("<h1>반가워요~~~</h1><img src='images/2.png'>"); //text로 출력
+		});
+		$("#btn3").click(function(){
+			var html=$("#div").html();
+			alert(html);
+		});
+		$("#div").hover(function(){
+			$(this).html("<h1>hello!</h1><img src='images/3.png'>");
+		},function(){
+			$(this).html("<h1>안녕!</h1><img src='images/4.png'>");
+		});
+	});
+</script>
+</head>
+<body>
+이름 <input type="text" id="name"><br>
+<input type="button" value="확인1" id="btn1">
+<input type="button" value="확인2" id="btn2">
+<input type="button" value="확인3" id="btn3">
+<div id="div" style="width:300px;height:300px;border:2px solid red;"></div>
+</body>
+</html>

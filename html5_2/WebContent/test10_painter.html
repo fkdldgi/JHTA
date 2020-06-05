@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#painter{
+		width: 500px;
+		height: 900px;
+	}
+	#painter button{
+		width: 30px;
+		height: 30px;
+		background-color: #aaa;
+	}
+	#canvas{
+		margin-top: 10px;
+	}
+	#painter #toolbox{
+		background-color: #d5d5d5;
+		width:500px;
+		height:30px;
+		padding:7px 3px;
+	}
+</style>
+<script type="text/javascript">
+	var width;
+	var penColor;
+	function penStyle(w){
+		width=w;
+	}
+	function changeColor(c){
+		penColor=c;
+	}
+	function clearCanvas(){
+		ctx.clearRect(0,0,500,500);
+	}
+	var ctx=null;
+	var canvas=null;
+	window.onload=function(){
+		canvas=document.getElementById("canvas");
+		ctx=canvas.getContext("2d");
+		ctx.strokeStyle="#000"; //초기 선색상
+		canvasDraw();
+	}
+	function canvasDraw(){
+		canvas.addEventListener('mousedown',startDraw);
+		canvas.addEventListener('mouseup',endDraw);
+	}
+	function startDraw(e){
+		ctx.beginPath();
+		var x=e.clientX-canvas.offsetLeft;
+		var y=e.clientY-canvas.offsetTop;
+		ctx.moveTo(x,y);
+		canvas.addEventListener('mousemove',drawLine);
+	}
+	function endDraw(){
+		canvas.removeEventListener('mousemove',drawLine);
+	}
+	function drawLine(e){ //선그리기
+		ctx.lineWidth=width;
+		ctx.strokeStyle=penColor;
+		var x=e.clientX-canvas.offsetLeft;
+		var y=e.clientY-canvas.offsetTop;
+		ctx.lineTo(x,y);
+		ctx.stroke();
+		ctx.moveTo(x,y);
+	}
+</script>
+</head>
+<body>
+<div id="painter">
+	<div id="toolbox">
+		<div id="typebox" style="float:left">
+			<button onclick="penStyle(2)">T</button>
+			<button onclick="penStyle(5)">M</button>
+			<button onclick="penStyle(8)">S</button>
+			<button onclick="clearCanvas()">C</button>
+		</div>
+		<div id="colorbox" style="float:right">
+			<button style="background-color:red" onclick="changeColor('red')">&nbsp;</button>
+			<button style="background-color:green" onclick="changeColor('green')">&nbsp;</button>
+			<button style="background-color:blue" onclick="changeColor('blue')">&nbsp;</button>
+			색상선택 <input type="color" onchange="changeColor(this.value)">
+		</div>
+	</div>
+	<canvas id="canvas" width="500" height="500" style="border:3px solid #aaa"></canvas>
+</div>
+</body>
+</html>

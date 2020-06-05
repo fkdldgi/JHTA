@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_layout.html</title>
+<style>
+	*{margin:0px;padding:0px;}
+	#wrap{width:1200px;height:900px; background-color:pink; margin:auto;}
+	#header{width:100%; height:20%;background-color:orange;}
+	#main{width:100%; height:60%;background-color:green;}
+	#footer{width:100%; height:20%;background-color:yellow;}
+	#header #logo{float:left;}
+	#header #gnb{float:right; margin-right:50px;}
+	#gnb ul li{display:inline-block; background-color:red;width:100px;
+	padding:10px; margin-top:50px;}
+	ul li a{text-decoration: none;}
+	ul li a:hover{color:black;}/* hover:가상셀렉터(a태그에 마우스가 올라가면)*/
+	#content{padding:50px;}
+	#logo img{border: 3px solid red; border-radius:30px;background-color:white;}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div id="logo">
+			<img src="images/1.png" alt="중앙hta"> <!-- alt:이미지에 대한 설명(웹접근성때문에 사용) -->
+		</div>
+		<div id="gnb">
+			<ul>
+				<li><a href="#">학원소개</a></li>
+				<li><a href="#">과정안내</a></li>
+				<li><a href="#">질문/답변</a></li>
+				<li><a href="#">오시는길</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="main">
+		<div id="content">
+			<h1>중앙HTA</h1>
+			<p>
+				좋은 학원입니다.~~~<br>
+				<img src="images/2.png">
+			</p>
+		</div>
+	</div>
+	<div id="footer" style="text-align:center">
+		<p>COPYRIGHT 2015 HTA CO, LTD. ALL RESERVED</p>
+		<address>서울시 종로구...</address> 
+	</div>
+</div>
+</body>
+</html>

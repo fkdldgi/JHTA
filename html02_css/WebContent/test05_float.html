@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test05_float.html</title>
+<style>
+	div{width:200px;height:200px;}
+	/* float:left; 부모의 왼쪽에 붙이기(영역차지를 하지 않아 float를 하지 않은 속성들을 덮음)*/
+	#div1{background-color:red;float:left;} 
+	#div2{background-color:green;float:left;}
+	#div3{background-color:yellow;float:left;}
+	/* clear:both; float속성 해제하기 */
+	#div4{background-color:blue; clear:both;}
+</style>
+</head>
+<body>
+<div id="div1">
+	div1
+</div>
+<div id="div2">
+	div2
+</div>
+<div id="div3">
+	div3
+</div>
+<div id="div4" style="background-color:gray">
+	div4
+</div>
+</body>
+</html>

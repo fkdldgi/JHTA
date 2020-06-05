@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width:100px;height: 100px;border:2px solid orange;}
+</style>
+<script>
+	window.onload=function(){
+		var previous=document.getElementById("previous");
+		var next=document.getElementById("next");
+		var num=5;
+		var imgs=document.getElementsByTagName("img");
+		previous.addEventListener("click",function(e){
+			var s=imgs[4].src+"";
+			var ss=s.split("/");
+			var temp=ss[7].split(".");
+			if(temp[0]==num) num-=5;
+			for(var i=4; i>=0;i--){
+				if(num==0){
+					num=15;
+				}
+				imgs[i].src="images/"+num+".png";
+				num--;
+			}
+		});
+		next.addEventListener("click",function(e){
+			var s=imgs[0].src+"";
+			var ss=s.split("/");
+			var temp=ss[7].split(".");
+			if(temp[0]==num+1) num+=5;
+			for(var i=0; i<5; i++){
+				if(num==15){
+					num=1;
+					imgs[i].src="images/"+num+".png";
+				}else{
+					num++;
+					imgs[i].src="images/"+num+".png";
+				}
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<img src="images/1.png">
+<img src="images/2.png">
+<img src="images/3.png">
+<img src="images/4.png">
+<img src="images/5.png"><br>
+<input type="button" value="<<" id="previous">
+<input type="button" value=">>" id="next">
+</body>
+</html>

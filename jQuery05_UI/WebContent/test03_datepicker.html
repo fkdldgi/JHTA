@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+</head>
+<body>
+날짜선택 <input type="text" id="date">
+<br>
+<div id="date1"></div>
+<input type="button" value="달력보이기" id="btn1">
+</body>
+<script type="text/javascript">
+	var date1=$("#date1").datepicker({
+		dateFormat:"yy/mm/dd",
+		onSelect: function(d){ //선택 후의 동작을 만들어줌. (d는 선택한 날짜)
+			alert("선택한날짜:"+d);
+		}
+	});
+	date1.hide();
+	$("#btn1").click(function(){
+		date1.show();
+	});
+	
+	$("#date").datepicker({
+		showOn: "button",
+		buttonText: "Calendar",
+		dateFormat: "yy/mm/dd",
+		dayNamesMin: ["일","월","화","수","목","금","토"],
+		monthNames: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+		yearSuffix: "년",
+		showMonthAfterYear: true
+	});
+</script>
+</html>

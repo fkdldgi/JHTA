@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+		//소수구하기
+		var worker=new Worker('sosu.js');
+		//워커가 메시지를 받으면 function이 수행됨
+		worker.onmessage=function(event){
+			var div=document.getElementById("result");
+			div.innerHTML=event.data;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 
+	웹워커 : 기존의 자바스크립트는 싱글스레드였지만 html5에서는 웹워커를 이용해서
+	멀티스레드가 가능하다. 워커는 메인스레드의 변수를 공유할 수 없고, 화면 랜더링에 관련된
+	html요소(DOM)을 변경하는 것은 불가능 하다.
+ -->
+ <div >아리랑 아리랑 아라리요~~~</div>
+ <img src="images/1.png">
+ <div id="result"></div>
+</body>
+</html>

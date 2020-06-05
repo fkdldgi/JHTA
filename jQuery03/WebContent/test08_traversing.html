@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<!-- 아이디와 비밀번호에 포커스가 들어오면 (focusin) span에
+필수입력사항입니다. 라고 출력도록 해보세요.
+ -->
+<form action="join.jsp">
+	아이디(*) <input type="text" name="id" class="required"><span></span><br>
+	비밀번호(*)<input type="password" name="pwd" class="required"><span></span><br>
+	이메일 <input type="text" name="email" class="required"><br>
+	<input type="submit" value="회원가입">
+</form>
+</body>
+	<script type="text/javascript">
+		$(".required").on({
+			focusin:function(){
+				$(this).next().text("필수입력사항입니다.");
+			},
+			focusout:function(){
+				$(this).next().text("");
+			}
+		});
+		$("form").submit(function(){
+			//alert("submit호출!");
+			var id=$("input[name='id']");
+			var pwd=$("input[name='pwd']");
+			if(id.val()==""){
+				alert("아이디입력!");
+				id.focus();
+				return false; //submit취소
+			}
+			return true; //submit하기
+		});
+	</script>
+</html>

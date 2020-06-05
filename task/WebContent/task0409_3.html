@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	*{margin:0px; padding:0px;}
+	#wrap{width: 800px; height:900px; margin:auto;}
+	#title{width:100%; height:20%; border:2px solid black;}
+	#input{text-align:center; margin-top:50px;}
+	#main{width:100%; height: 80%;border:1px solid red;}
+	#table{width:100px; height:50px; border:1px;}
+	tr,td{width:1%; height: 99px; border:1px solid black; text-align:center;}
+</style>
+<script>
+	function calender(){
+		var year=document.getElementById("year");
+		var month=document.getElementById("month");
+		var cal=document.getElementById("cal");
+		//기존 테이블 삭제
+		while(cal.rows.length>0){
+			cal.deleteRow(cal.rows.length-1);
+		}
+		var firstDate=new Date(year.value,month.value-1,1);
+		var lastDate=new Date(year.value,month.value,0);
+		var firstDay=firstDate.getDay();
+		var row=cal.insertRow(cal.rows.length);
+		var cell="";
+		var i; //요일역할
+		for(i=0; i<firstDay; i++){ //첫줄에 1일자리의 전까지 공백 셀을 넣어줌
+			cell=row.insertCell();
+		}
+		i++;
+		for(var j=1; j<=lastDate.getDate(); j++){
+			cell=row.insertCell();
+			cell.innerHTML=j;
+			if(i%7==0){
+				cell.innerHTML="<font color=blue>"+j+"</font>";
+				row=cal.insertRow(cal.rows.length);
+			}
+			if(i%7==1){
+				cell.innerHTML="<font color=red>"+j+"</font>";
+			}
+			i++;
+		}
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="title">
+		<div id="input">
+			<h1>
+			<input type="text" id="year">년
+			<input type="text" id="month">월
+			<input type="button" value="확인" id="result" onclick="calender()">
+			</h1>
+		</div>
+	</div>
+	<div id="main">
+		<table align="center">
+			<tr>
+				<td align="center"><font color="red">일</font></td>
+				<td align="center">월</td>
+				<td align="center">화</td>
+				<td align="center">수</td>
+				<td align="center">목</td>
+				<td align="center">금</td>
+				<td align="center"><font color="blue">토</font></td>
+			</tr>
+			<tbody id="cal"></tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

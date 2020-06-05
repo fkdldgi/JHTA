@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#content {width: 80%;margin: auto;}
+
+#quickmenu {
+	width: 180px;
+	height: 230px;
+	boerder: 2px solid blue;
+	background-color: lime;
+	position: absolute;
+	right: 150px;
+	top: 50px;
+}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(window).scroll(function(){
+			//스크롤된 top값 얻어오기
+			var scrollTop=$(window).scrollTop();
+			var moveTop=scrollTop+50;
+			//$("#quickmenu").css("top",moveTop);
+			//$("#quickmenu").stop(); //기존에 수행중인 애니메이션 멈추기
+			//$("#quickmenu").animate({
+			//	top:moveTop
+			//});
+			$("#quickmenu").stop().animate({
+				top:moveTop
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="quickmenu">
+		<ul>
+			<li><a href="#">최근본페이지1</a>
+			<li><a href="#">최근본페이지2</a>
+			<li><a href="#">최근본페이지3</a>
+			<li><a href="#">최근본페이지4</a>
+			<li><a href="#">최근본페이지5</a>
+		</ul>
+	</div>
+	<div id="content">
+		<p>
+			jQuery API jQuery is a fast, small, and feature-rich JavaScript
+			library. <br> It makes things like HTML document traversal and
+			manipulation, event handling, animation, and Ajax much simpler with
+			an easy-to-use API that works across a multitude of browsers. <br>
+			If you're new to jQuery, we recommend that you check out the jQuery
+			Learning Center. <br> If you're updating to a newer version of
+			jQuery, be sure to read the release notes published on our blog. <br>
+			If you're coming from a version prior 1.9, you should check out the
+			1.9 Upgrade Guide as well.<br> Note that this is the API
+			documentation for jQuery core. Other projects have API docs in other
+			locations:<br> <br>
+
+		</p>
+		<p>
+			Category: CSS These methods get and set CSS-related properties of
+			elements.<br> Also in: Attributes | Manipulation > Class
+			Attribute .addClass() Adds the specified class(es) to each element in
+			the set of matched elements.<br> Also in: Manipulation > Style
+			Properties .css() Get the value of a computed style property for the
+			first element in the set of matched elements or set one or more CSS
+			properties for every matched element.<br> Also in: Attributes |
+			Manipulation > Class Attribute .hasClass() Determine whether any of
+			the matched elements are assigned the given class.<br> Also in:
+			Dimensions | Manipulation > Style Properties .height() Get the
+			current computed height for the first element in the set of matched
+			elements or set the height of every matched element.<br> Also
+			in: Dimensions | Manipulation > Style Properties .innerHeight() Get
+			the current computed inner height (including padding but not border)
+			for the first element in the set of matched elements or set the inner
+			height of every matched element.<br> Also in: Dimensions |
+			Manipulation > Style Properties .innerWidth() Get the current
+			computed inner width (including padding but not border) for the first
+			element in the set of matched elements or set the inner width of
+			every matched element.<br> jQuery.cssHooks Hook directly into
+			jQuery to override how particular CSS properties are retrieved or
+			set, normalize CSS property naming, or create custom properties.<br>
+
+			Also in: Manipulation > Style Properties jQuery.cssNumber An object
+			containing all CSS properties that may be used without a unit. The
+			.css() method uses this object to see if it may append px to unitless
+			values.<br> jQuery.escapeSelector() Escapes any character that
+			has a special meaning in a CSS selector. Also in: Offset |
+			Manipulation > Style Properties .offset() Get the current coordinates
+			of the first element, or set the coordinates of every element, in the
+			set of matched elements, relative to the document.<br> Also in:
+			Dimensions | Manipulation > Style Properties .outerHeight() Get the
+			current computed outer height (including padding, border, and
+			optionally margin) for the first element in the set of matched
+			elements or set the outer height of every matched element.<br>
+
+			Also in: Dimensions | Manipulation > Style Properties .outerWidth()
+			Get the current computed outer width (including padding, border, and
+			optionally margin) for the first element in the set of matched
+			elements or set the outer width of every matched element.<br>
+
+			Also in: Offset | Manipulation > Style Properties .position() Get the
+			current coordinates of the first element in the set of matched
+			elements, relative to the offset parent.<br> Also in: Attributes
+			| Manipulation > Class Attribute .removeClass() Remove a single
+			class, multiple classes, or all classes from each element in the set
+			of matched elements.<br> Also in: Offset | Manipulation > Style
+			Properties .scrollLeft() Get the current horizontal position of the
+			scroll bar for the first element in the set of matched elements or
+			set the horizontal position of the scroll bar for every matched
+			element.<br> Also in: Offset | Manipulation > Style Properties
+			.scrollTop() Get the current vertical position of the scroll bar for
+			the first element in the set of matched elements or set the vertical
+			position of the scroll bar for every matched element.<br> Also
+			in: Attributes | Manipulation > Class Attribute .toggleClass() Add or
+			remove one or more classes from each element in the set of matched
+			elements, depending on either the class’s presence or the value of
+			the state argument.<br> Also in: Dimensions | Manipulation >
+			Style Properties .width() Get the current computed width for the
+			first element in the set of matched elements or set the width of
+			every matched element.<br>
+		</p>
+
+		<p>Category: Attributes These methods get and set DOM attributes
+			of elements. Also in: Manipulation > Class Attribute | CSS
+			.addClass() Adds the specified class(es) to each element in the set
+			of matched elements. Also in: Manipulation > General Attributes
+			.attr() Get the value of an attribute for the first element in the
+			set of matched elements or set one or more attributes for every
+			matched element. Also in: Manipulation > Class Attribute | CSS
+			.hasClass() Determine whether any of the matched elements are
+			assigned the given class. Also in: Manipulation > DOM Insertion,
+			Inside .html() Get the HTML contents of the first element in the set
+			of matched elements or set the HTML contents of every matched
+			element. Also in: Manipulation > General Attributes .prop() Get the
+			value of a property for the first element in the set of matched
+			elements or set one or more properties for every matched element.
+			<br>
+			Also in: Manipulation > General Attributes .removeAttr() Remove an
+			attribute from each element in the set of matched elements. Also in:
+			Manipulation > Class Attribute | CSS .removeClass() Remove a single
+			class, multiple classes, or all classes from each element in the set
+			of matched elements. Also in: Manipulation > General Attributes
+			.removeProp() Remove a property for the set of matched elements. Also
+			in: Manipulation > Class Attribute | CSS .toggleClass() Add or remove
+			one or more classes from each element in the set of matched elements,
+			depending on either the class’s presence or the value of the state
+			argument. Also in: Forms | Manipulation > General Attributes .val()
+			Get the current value of the first element in the set of matched
+			elements or set the value of every matched element.<br></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_function.html</title>
+<script type="text/javascript">
+/*
+ 	[ 사용자정의함수 ]
+	function 함수명(매개변수,...){
+		실행문장;
+		..
+		[return]
+	}
+ */
+ 
+ 	function test(){
+		var n1=parseInt(document.getElementById("n1").value); //1px,2px등 문자열 중 숫자로 인식되는 것을 가져옴(문자열을 만나기 전 까지)
+		var n2=parseInt(document.getElementById("n2").value);
+		//var n1=Number(document.getElementById("n1").value); //Number는 실수도 연산가능
+		//var n2=Number(document.getElementById("n2").value);
+ 		var sum=getSum(n1,n2);
+ 		var n3=document.getElementById("n3");
+ 		n3.value=sum;
+ 	}
+ 
+ 	function getSum(n1,n2){
+ 		var s=n1+n2;
+ 		return s;
+ 	}
+ 	
+ 	function test1(){
+ 		var n4=parseInt(document.getElementById("n4").value);
+ 		var n5=parseInt(document.getElementById("n5").value);
+ 		var max=getMax(n4,n5);
+ 		var div=document.getElementById("m");
+ 		//div.innerHTML="<span style='color:red'>큰수:"+max+"</span>"; //HTML해석가능
+ 		div.innerText="<span style='color:red'>큰수:"+max+"</span>"; //HTML해석불가 오로지 텍스트
+ 	}
+ 	
+ 	function getMax(n4,n5){
+ 		if(n4>n5){
+ 			return n4;
+ 		}else{
+ 			return n5;
+ 		}
+ 	}
+</script>
+</head>
+<body>
+<input type="text" size="5" value="1" id="n1">+
+<input type="text" size="5" value="2" id="n2">=
+<input type="text" size="5" id="n3">
+<br>
+<input type="button" value="합" onclick="test()">
+<br>
+
+정수<input type="text" size="5" value="1" id="n4">
+정수<input type="text" size="5" value="2" id="n5">
+<br>
+<input type="button" value="큰값" onclick="test1()">
+<div id="m">
+
+</div>
+</body>
+</html>

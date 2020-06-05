@@ -1,0 +1,64 @@
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome 127.0.0.1 (4)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9254,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/task/WebContent/task0409_1.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome localhost (1)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9245,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:8081/task/task0409_1.html"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (5)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9275,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/task/WebContent/task0409_3.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (7)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9224,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/task/WebContent/task0410_1.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (8)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9278,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/task/WebContent/task0410_3.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (14)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9263,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/task/WebContent/task0413_1.html?_cmAuth\u003donutozbzoi"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (15)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9271,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:53506/p/task/WebContent/task0413_2.html?_cmAuth\u003donutozbzoi"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>jsp21_sessionListener</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <!-- 세션리스너 설정하기(세션이 생성될 때 실행되므로 매핑X) -->
+  <listener>
+  	<listener-class>jsp21_sessionListener.SessionCountListener</listener-class>
+  </listener>
+  <session-config>
+  	<session-timeout>1</session-timeout>
+  </session-config>
+</web-app>

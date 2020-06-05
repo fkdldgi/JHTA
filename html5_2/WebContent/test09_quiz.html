@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		var ctx=canvas.getContext("2d");
+		canvas.addEventListener("click",function(e){
+			ctx.clearRect(0,0,500,500);
+			ctx.beginPath();
+			/*
+				e.clientX:클릭한 x좌표 -화면기준
+				ctx.arc(x,y,...): canvas내부를 기준으로 좌표 설정됨
+				canvas.offsetLeft:canvas가 위치한 left속성
+				canvas.offsetTop: canvas가 위치한 top속성값
+			
+			*/
+			
+			var x=e.pageX - canvas.offsetLeft;
+			var y=e.pageY - canvas.offsetTop;
+			var r=(Math.random()*100)+10;
+			ctx.arc(x,y,r,0,Math.PI*2,true);
+			var color1=(Math.random()*255)+1;
+			var color2=(Math.random()*255)+1;
+			var color3=(Math.random()*255)+1;
+			ctx.fillStyle="rgb("+color1+","+color2+","+color3+")";
+			ctx.fill();
+			
+		});
+	}
+	
+	
+</script>
+<style type="text/css">
+	*{margin:0;padding:0;}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="border:1px solid #aaa">
+</canvas>
+</body>
+</html>

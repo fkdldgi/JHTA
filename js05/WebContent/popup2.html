@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload=function(){
+		var cid=document.getElementById("cid");
+		var pid=window.opener.document.getElementById("pid").value;
+		cid.value=pid;
+	}
+	function showResult(){
+		var cid=document.getElementById("cid").value;
+		var result=document.getElementById("result");
+		var useBtn=document.getElementById("useBtn");
+		if(cid=="admin"){
+			result.innerHTML="사용할 수 없는 아이디입니다.";
+			useBtn.disabled=true;
+		}else{
+			result.innerHTML="사용가능한 아이디입니다.";
+			useBtn.disabled=false;
+		}
+	}
+	function useId(){
+		var pid=window.opener.document.getElementById("pid");
+		var cid=document.getElementById("cid").value;
+		pid.value=cid;
+		self.close();
+	}
+</script>
+</head>
+<body>
+아이디<input type="text" id="cid" name="cid">
+<div id="result" style="color:red;font-size:12px"></div>
+<input type="button" value="확인" onclick="showResult()">
+<input type="button" value="사용" disabled="disabled" id="useBtn" onclick="useId()">
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload=function(){ //윈도우가 로드 되면
+		var btn1=document.getElementById("btn1");
+		//버튼에 이벤트리스너 등록하기
+		btn1.onclick=showMsg;
+
+		function showMsg(e){
+			alert("반가워요!"+e.target);
+		}
+		var btn2=document.getElementById("btn2");
+		btn2.onclick=function(e){
+			alert("버튼2클릭!!!!");
+		}
+	}
+</script>
+</head>
+<body>
+<input type="button" value="click1" id="btn1">
+<input type="button" value="click2" id="btn2">
+</body>
+</html>

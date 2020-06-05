@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.MyUsersMapper"> <!-- 패키지명.파일명 -->
+	<select id="select" resultType="test.vo.MyUsersVo">
+		select * from myusers
+	</select>
+	<select id="getinfo" parameterType="String" resultType="test.vo.MyUsersVo">
+		select * from myusers where id=#{id}
+	</select>
+	<insert id="insert" parameterType="test.vo.MyUsersVo">
+		insert into myusers values(#{id},#{pwd},#{email},sysdate)
+	</insert>
+	<delete id="delete" parameterType="String">
+		delete from myusers where id=#{id}
+	</delete>
+	<update id="update" parameterType="test.vo.MyUsersVo">
+		update myusers set pwd=#{pwd},email=#{email} where id=#{id}
+	</update>
+</mapper>

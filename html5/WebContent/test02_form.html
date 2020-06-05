@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	fieldset{
+		width: 600px;
+	}
+</style>
+</head>
+<body>
+<form method="post" action="join.jsp">
+	<fieldset>
+		<legend>회원정보</legend>
+		<label for="email">이메일</label>
+		<input type="email" id="email" placeholder="example@domain.com"
+			required="required"><br>
+		<label for="pwd">비밀번호</label>
+		<input type="password" id="pwd" required="required"><br>
+		<label for="birth">생년월일</label>
+		<input type="date" id="birth"><br>
+		<label for="age">나이</label>
+		<input type="number" id="age" max="150" min="1"><br>
+		<label for="skill">숙련도</label>
+		<input type="range" id="skill" max="10" min="1" value="1"><br>
+	</fieldset>
+	<input type="submit" value="가입">
+	<input type="submit" value="수정" formaction="update.jsp">
+	<input type="submit" value="삭제" formaction="delete.jsp" formmethod="post">
+</form>
+</body>
+</html>

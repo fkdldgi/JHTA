@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.background{
+		background-color: black;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var n=0;
+		var img=$("<img src='images/"+ ++n +".png'>").hide().appendTo("#imglist").fadeIn(1000);
+		img.on("mouseover mouseout",function(){
+			$(this).toggleClass("background");
+		});
+		
+		/* $("#imglist").on("mouseover","img",function(){
+			$(this).css("background-color","orange");
+		});
+		$("#imglist").on("mouseout","img",function(){
+			$(this).css("background-color","white");
+		}); */
+	});
+</script>
+</head>
+<body>
+<!-- 
+페이지가 로딩되면 div#imglist에 img가 페이드효과가 적용되면서 보이도록 해보세요.
+이미지에 마우스오버되면 배경색상이 적용되도록 해보세요.
+ -->
+</body>
+<div id="imglist"></div>
+</html>

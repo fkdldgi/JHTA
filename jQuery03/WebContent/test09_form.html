@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<form action="join.jsp">
+	아이디(*) <input type="text" name="id" class="required"><span></span><br>
+	비밀번호(*)<input type="password" name="pwd" class="required"><span></span><br>
+	이메일 <input type="text" name="email" class="required"><br>
+	<input type="submit" value="회원가입">
+</form>
+<a href="join.jsp">회원가입하기</a>
+</body>
+<script type="text/javascript">
+	$("a").click(function(e){
+		//이벤트가 발생되었을때 기본적으로 수행하는 동작을 하지 못하게 함
+		e.preventDefault(); //ajax처리를 하고싶을때 페이지이동을 막고
+		//... 이 부분에 ajax처리를 함(button으로 만들경우 자바스크립트가 동작하지
+		//않는 환경일경우 회원가입조차 되지 않아서 a태그로 만드는경우가 있음. 최소 회원가입은 가능. 웹접근성)
+	});
+
+	$("form").submit(function(e){
+		console.log("submit....");
+		var id=$("input[name='id']").val();
+		if(id==""){
+			alert("아이디를 입력하세요!");
+			e.preventDefault(); //서버로 전송취소
+		}
+		//전송되는 파라미터를 쿼리스트링문자열로 얻어오기
+		var param=$(this).serialize();
+		alert(param);
+	});
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var tot1=0; //전역변수
+	function hap(){
+		var tot2=0; //지역변수(함수내에서만 사용가능.함수가 끝나면 사라짐)
+		var num1=document.getElementById("num1").value;
+		var num2=document.getElementById("num2").value;
+		var result=document.getElementById("result");
+		var hap=parseInt(num1)+parseInt(num2);
+		result.value=hap;
+		tot1+=hap;
+		alert("전체합:"+tot1);
+	}
+</script>
+</head>
+<body>
+<!-- 두수합구하기 -->
+	<input type="text" id="num1">+<input type="text" id="num2">=
+	<input type="text" id="result"><br><br>
+	<input type="button" id="btn1" value="합구하기" onclick="hap()">
+	
+</body>
+</html>

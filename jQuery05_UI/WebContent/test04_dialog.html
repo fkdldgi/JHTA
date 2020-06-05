@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<style>
+	body{font-size:0.8em;}
+	h1{text-align: center;}
+	input[type='text'],label{margin-bottom: 12px;padding: .4em; width: 95%;}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//$("#mydlg").dialog(); //jquery 버전이 높아서 2개가 안띄워지는 오류발생(버전낮은거면 가능)
+		$("#edate").datepicker({
+			dateFormat:"yy-mm-dd",
+			changeYear:true,
+			changeMonth: true
+		});
+		
+		$("#dlg1").dialog({
+			autoOpen: false, //처음에는 화면에 나타나지 않게 하기
+			modal:true, //모달대화상자 만들기(버전이 안맞음)
+			buttons:{
+				저장:function(){
+					//입력한 텍스트를 div#list에 추가해보세요.
+					//일정은 datepicker로 보이도록 하세요.
+					var ename=$("#ename").val();
+					var edate=$("#edate").val();
+					$("#list").append("<p>일정이름:"+ename+",날짜:"+edate+"</p>");
+				},
+				닫기:function(){
+					$("#dlg1").dialog("close"); //다이얼로그 닫기
+				}
+			}
+		});
+		$("#open_dlg").click(function(){
+			$("#dlg1").dialog("open"); //다이얼로그 열기
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+이름<input type="text">
+<h1 id="open_dlg">일정생성</h1>
+<div id="list"></div>
+<div id="mydlg" title="나의 대화상자">
+	<p>
+	경북소방본부는 2일 이윤진 소방대원과 시민 3명이 30대 운전자 A씨를 구조했다고 밝혔다.
+
+	A씨는 지난 5월 19일 오후 5시쯤 경북 김천의 감천터널을 지나다 경련을 느끼고 의식을 잃었다. A씨의 차량은 편도 2차선 터널 안에서 10여초간 차선을 넘나들고 벽에 부딪히며 느린 속도로 수십 m를 움직였다.
+
+	</p>
+</div>
+<div id="dlg1" title="일정">
+<h1>일정정보입력</h1>
+<label for="ename">일정이름</label>
+<input type="text" id="ename">
+<label for="edate">일정날짜</label>
+<input type="text" id="edate">
+</div>
+</body>
+</html>

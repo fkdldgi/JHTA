@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test05_form.html</title>
+<style>
+fieldset{width:300px;}
+</style>
+</head>
+<body>
+<h1>회원가입</h1>
+<form action="join.jsp">
+	<label for="id">아이디</label>
+	<input type="text" name="id" id="id"><br>
+	<label for="pwd">비밀번호</label>
+	<input type="password" name="pwd" id="pwd"><br>
+	<label for="birth">생년월일</label>
+	<input type="date" name="birth" id="birth"><br>
+	<fieldset>
+		<legend>사는지역</legend> <!-- legend태그는 사는지역 서울, 사는지역 부산 등 앞에 제목을 같이 가져옴 -->
+		<label for="seoul">서울</label>
+		<input type="radio" checked="checked" value="seoul" name="addr" id="seoul">
+		<label for="pusan">부산</label>
+		<input type="radio" value="pusan" name="addr" id="pusan" >
+		<label for="etc">기타</label>
+		<input type="radio" value="etc" name="addr" id="etc">
+	</fieldset>
+	<fieldset>
+		<legend>취미</legend>
+		<label>게임<input type="checkbox" value="게임"></label>
+		<label>영화<input type="checkbox" value="영화"></label>
+		<label>독서<input type="checkbox" value="독서"></label>
+		<label>여행<input type="checkbox" value="여행"></label>
+	</fieldset>
+	<label>직업</label>
+	<select name="job">
+		<option value="학생">학생</option>
+		<option value="공무원">공무원</option>
+		<option value="군인">군인</option>
+		<option value="기타">기타</option>
+	</select>
+	<label>첨부파일<input type="file"></label>
+	<br>
+	기타 하고싶은말<br>
+	<textarea rows="5" cols="50"></textarea>
+	<br>
+	<input type="submit" value="가입하기">
+</form>
+</body>
+</html>

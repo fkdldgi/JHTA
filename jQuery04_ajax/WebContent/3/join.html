@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input[value='중복검사']").click(function(){
+			var id=$("#id").val();
+			$.ajax({
+				url:"idcheck.jsp?id="+id,
+				dataType: "xml",
+				success: function(data){
+					var result=$(data).find("result");
+					var using=result.find("using").text();
+					if(id==""){
+						$("#idcheck").html("<p>아이디를 입력하세요</p>");
+					}else if(using=="true"){
+						$("#idcheck").html("<p>사용중인 아이디입니다</p>");
+					}else{
+						$("#idcheck").html("<p>사용가능한 아이디입니다</p>");
+					}
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<h1>회원가입</h1>
+<form method="post" action="joinOk.jsp">
+	아이디 <input type="text" name="id" id="id">
+	<input type="button" value="중복검사">
+	<span id="idcheck"></span>
+	<br>
+	비밀번호 <input type="password" name="pwd"><br>
+	이메일 <input type="text" name="email"><br>
+	<input type="submit" value="가입">
+</form>
+</body>
+</html>

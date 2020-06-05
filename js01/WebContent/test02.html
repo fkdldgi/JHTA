@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02.html</title>
+<script sype="text/javascript">
+	function showInputData(){
+		var name=document.getElementById("name");
+		var age=document.getElementById("age");
+		var s=parseInt(age.value)+1; //parseInt("숫자문자열")==> 정수로 리턴
+		alert("입력된 이름:"+name.value+" 나이:"+s);
+	}
+</script>
+</head>
+<body>
+이름<input type="text" id="name"><br>
+나이<input type="text" id="age"><br>
+<input type="button" value="확인" onclick="showInputData()">
+</body>
+</html>

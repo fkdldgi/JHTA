@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#commAdd{display:none;}
+	.commDiv{
+		width:200px;
+		height:150px;
+		border:2px solid green;
+		word-break:break-all;
+		margin-top:10px;
+	}
+</style>
+</head>
+<body>
+<div id="commList"></div>
+<input type="button" value="방명록쓰기" id="btn1">
+<input type="button" value="방명록삭제" id="btn2">
+<div id="commAdd">
+	작성자<br>
+	<input type="text" id="writer"><br>
+	내용<br>
+	<textarea rows="5" cols="40" id="content"></textarea>
+	<br>
+	<input type="button" value="등록" id="addBtn">
+	<input type="button" value="취소" id="cancleBtn">
+</div>
+</body>
+<script>
+	//방명록쓰기버튼
+	var btn1=document.getElementById("btn1");
+	//방법1
+	btn1.addEventListener("click",function(e){
+		var commAdd=document.getElementById("commAdd");
+		commAdd.style.display="block";
+	});
+	//방법2
+	btn1.onclick=function(){
+		var commAdd=document.getElementById("commAdd");
+		commAdd.style.display="block";
+	}
+	//등록버튼
+	var addBtn=document.getElementById("addBtn");
+	addBtn.addEventListener("click",function(e){
+		var writer=document.getElementById("writer");
+		var content=document.getElementById("content");
+		var commList=document.getElementById("commList");
+		var div=document.createElement("div");
+		div.innerHTML="작성자:"+writer.value+"<br>내용:"+content.value;
+		div.className="commDiv"; //생성된 div에 클래스설정하기
+		div.addEventListener("mouseover",function(e){
+			div.style.backgroundColor="LightGray";
+		});
+		div.addEventListener("mouseout",function(e){
+			div.style.backgroundColor="white";
+		});
+		commList.appendChild(div);
+		
+		var commAdd=document.getElementById("commAdd");
+		writer.value=""; //입력된 작성자 지우기
+		content.value=""; //입력된 내용 지우기
+		commAdd.style.display="none"; //방명록쓰기 숨기기
+	});
+
+	//취소버튼
+	var cancleBtn=document.getElementById("cancleBtn");
+	cancleBtn.addEventListener("click",function(e){
+		var commAdd=document.getElementById("commAdd");
+		commAdd.style.display="none";
+	})
+
+	//방명록 삭제버튼
+	var btn2=document.getElementById("btn2");
+	btn2.onclick=function(){
+		var commList=document.getElementById("commList");
+		var childNodes=commList.childNodes; //모든 자식객체 얻어오기(컬렉션배열로 가져옴 ArrayList와 유사)
+		for(let i=childNodes.length-1;i>=0;i--){ //밑에서부터 지우기(위에서부터지우면 배열번호가 당겨짐)
+			var commDiv=childNodes.item(i); //i번째 요소객체 얻어오기
+			commList.removeChild(commDiv);//자식객체 제거하기
+		}
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+

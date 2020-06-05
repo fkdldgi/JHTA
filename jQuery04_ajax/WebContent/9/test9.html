@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.userInfo{
+		border:1px solid black;
+		margin-top:10px;
+		width: 300px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			$.ajax({
+				url:"server1.jsp",
+				dataType:"json",
+				method:"get",
+				success:function(data){
+					//for(let i=0; i<data.length; i++){
+					//방법1
+					/* $(data).each(function(i){
+						var id=this.id;
+						var pwd=this.pwd;
+						var email=this.email;
+						var div=$("<div></div>").appendTo("#result");
+						div.append("<p>아이디:"+id+"</p>");
+						div.append("<p>비밀번호:"+pwd+"</p>");
+						div.append("<p>이메일:"+email+"</p>");
+						div.prop("class","userInfo");
+					}); */
+					
+					//방법2(쌤풀이)
+					$(data).each(function(i,mem){ //mem에는 json배열에 담긴 json객체가 순차적으로 저장
+						var div=$("<div></div>").appendTo("#result");
+						div.append("<p>아이디:"+mem.id+"</p>");
+						div.append("<p>비밀번호:"+mem.pwd+"</p>");
+						div.append("<p>이메일:"+mem.email+"</p>");
+						div.prop("class","userInfo");
+					});
+					
+					//방법3
+					/* for(let i=0; i<data.length; i++){
+						var id=data[i].id;
+						var pwd=data[i].pwd;
+						var email=data[i].email;
+						var div=$("<div></div>").appendTo("#result");
+						div.append("<p>아이디:"+id+"</p>");
+						div.append("<p>비밀번호:"+pwd+"</p>");
+						div.append("<p>이메일:"+email+"</p>");
+						div.prop("class","userInfo");
+					} */
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<!-- 버튼을 클릭하면 회원리스트를 div#result에 출력되도록 해보세요. -->
+<input type="button" id="btn1" value="회원리스트">
+<div id="result"></div>
+</body>
+</html>

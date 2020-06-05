@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<input type="button" value="이미지변경1" id="btn1">
+<input type="button" value="이미지변경2" id="btn2">
+<br>
+<img src="images/1.png" id="img1">
+<br>
+<input type="button" value="체크박스상태" id="btn3">
+선택<input type="checkbox" id="chk1" checked="checked">
+</body>
+<script type="text/javascript">
+	$("#btn1").click(function(){
+		//img1의 src속성 변경하기
+		$("#img1").prop("src","images/2.png");
+		var src=$("#img1").prop("src"); //prop: 자바스크립트에서 처리되는 속성
+		console.log(src);
+	});
+	$("#btn2").click(function(){
+		//img1의 src속성 변경하기
+		$("#img1").prop("src","images/3.png");
+		var src=$("#img1").attr("src"); //attr: HTML에서 처리되는 속성
+		console.log(src);
+	});
+	$("#btn3").click(function(){
+		//var checked=$("#chk1").prop("checked"); 
+		var checked=$("#chk1").attr("checked"); //attr은 나중에 변경된 사항은 가져올 수 없음
+		alert("체크된상태:"+checked);
+	});
+</script>
+</html>

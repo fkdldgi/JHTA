@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.mystyle{
+		background-color:orange;
+		color:white;
+	}
+	.imgstyle{
+		background-color: black;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){ //$(document).ready({}) 과 같음
+		/* $("#btn1").click(function(){
+			alert("버튼클릭!");		
+		}); */
+		$("#btn1").on('click',function(){
+			alert("버튼클릭!");
+		});
+		/* $("#mybox").on('mouseover',function(){
+			$(this).html("<h1>Hello jQuery!!!</h1>");
+		});
+		$("#mybox").on('mouseout',function(){
+			$(this).html("");
+		}); */		
+		
+		//한번에 여러개의 이벤트 처리 가능
+		$("#mybox").on({
+			mouseover:function(){
+				$(this).html("<h1>Hello jQuery!!!</h1>");
+				//$(this).addClass("mystyle");
+			},
+			mouseout:function(){
+				$(this).html("");
+				//$(this).removeClass("mystyle");
+			}
+		});
+		$("#mybox").on("mouseover mouseout",function(){
+			$(this).toggleClass("mystyle");
+		});
+		//이벤트핸들러에 데이터 전달하기(JSON형태로 e.data를 이용해 전달가능)
+		$("#btn2").on('click',{name:'홍길동',age:20},function(e){
+			var name=e.data.name;
+			var age=e.data.age;
+			alert("name:"+name+",age:"+age);
+		});
+		$("#btn3").one('click',function(e){ //one(딱 한번만 실행되는 이벤트)
+			alert("버튼3클릭!!!");
+		});
+		$("img").on("mouseover mouseout",function(){
+			$(this).toggleClass("imgstyle");
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="버튼1" id="btn1">
+<div id="mybox" style="width:300px;height:200px;border:2px solid red;">
+</div>
+<input type="button" value="버튼2" id="btn2">
+<input type="button" value="버튼3" id="btn3">
+<!-- 이미지에 마우스가 올라가면 배경색이 생기도록 해보세요. -->
+<div>
+	<img src="images/1.png">
+	<img src="images/2.png">
+	<img src="images/3.png">
+	<img src="images/4.png">
+</div>
+</body>
+</html>

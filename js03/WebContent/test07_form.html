@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function test(){
+		var name=document.getElementById("name");
+		var raddr=document.getElementById("addr");
+		var rname=document.getElementById("rname");
+		var raddr=document.getElementById("raddr");
+		var hobby=document.getElementById("hobby");
+		if(hobby.checked==true){
+			rname.value=name.value;
+			raddr.value=addr.value;
+		}else{
+			rname.value="";
+			raddr.value="";
+		}
+	}
+	function test1(check){
+		var name=document.getElementById("name");
+		var raddr=document.getElementById("addr");
+		var rname=document.getElementById("rname");
+		var raddr=document.getElementById("raddr");
+		var hobby=document.getElementById("hobby");
+		if(check==true){
+			rname.value=name.value;
+			raddr.value=addr.value;
+		}else{
+			rname.value="";
+			raddr.value="";
+		}
+	}
+</script>
+</head>
+<body>
+<form>
+	회원이름<input type="text" id="name"><br>
+	회원주소<input type="text" id="addr" style="width: 400px;"><br>
+	<input type="checkbox" value="chk" id="hobby" onclick="test1(this.checked)">위와동일<br>
+	받는사람<input type="text" id="rname"><br>
+	받는주소<input type="text" id="raddr" style="width: 400px;"><br>
+</form>
+</body>
+</html>

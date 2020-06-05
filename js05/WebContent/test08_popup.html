@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload=function(){
+		//팝업창 띄우기
+		//"_blank":새창으로 띄우기
+		//"_self" :자신창으로 팝업창 띄우기
+		//window.open('popup1.html',"_blank","width=500,height=500"); //두번째옵션은 타겟
+	}
+	function idcheck(){
+		window.open("popup2.html","","width=300,height=200");
+	}
+</script>
+</head>
+<body>
+<h1>우리우리 쇼핑몰</h1>
+<h1>회원가입</h1>
+<form>
+	아이디<input type="text" name="id" id="pid">
+	<input type="button" value="아이디중복검사" onclick="idcheck()"><br>
+	비밀번호<input type="password" name="pwd"><br>
+	<input type="button" value="회원가입">
+</form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test08_String.html</title>
+<script type="text/javascript">
+	var str="hello world!";
+	console.log("문자열길이:"+str.length);
+	var a=str.charAt(1);//1번째 위치 글자 꺼내오기
+	console.log("2번째 글자:"+a);
+	var b=str.substr(1,4); //1번째부터 글자4개 꺼내오기
+	console.log(b);
+	var c=str.substring(1,4);//1번째부터 4번째-1 위치까지 꺼내오기
+	console.log(c);
+	var d=str.indexOf("e"); //문자 "e"의 위치 찾기
+	console.log("문자e의 위치:"+d);
+	
+	function showDate(){
+		var id=document.getElementById("id");
+		if(id.value==null){
+			alert("아이디를 입력하세요.");
+			id.focus();
+		}else{
+			if(!(id.value.length>=5 && id.value.length<=9)){
+				alert("아이디를 5~9자 사이로 입력해 주세요!");
+				id.value="";
+				id.focus(); //포커스주기
+				return; //메소드 끝내기
+			}else{
+				//아이디가 모두 영문소문자로 이루어졌는지 검사해보세요.
+				for(var i=0; i<id.value.length; i++){
+					var ch=id.value.charAt(i);
+					if(!(ch>="a" && ch<="z")){ //큰따음표도 가능하고 작은따음표도 가능(속성은 큰따음표 ex:type="text"))
+						alert("소문자로만 입력하세요!");
+						id.value="";
+						id.focus();
+						return;
+					}
+				}
+			}
+		}
+		var pwd=document.getElementById("pwd");
+		if(pwd.value==null){
+			alert("비밀번호를 입력하세요.");
+			pwd.focus;
+		}else{
+			if(!(pwd.value.length>=5)){
+				alert("비밀번호를 5자이상 입력하세요!");
+				pwd.value="";
+				pwd.focus();
+				return;
+			}else{
+				for(var i=0; i<pwd.value.length; i++){
+					var num=pwd.value.charAt(i);
+					if(!(num>='0' && num<='9')){
+						alert("숫자로만 입력하세요!");
+						pwd.value="";
+						pwd.focus();
+						return;
+					}
+				}
+			}
+		}
+		var email=document.getElementById("email");
+		if(email.value!=null){
+			if(email.value.indexOf('@')==-1){
+				alert("이메일에 @가 포함되었는지 확인하세요.");
+				email.value="";
+				email.focus();
+				return;
+			}
+		}
+		document.getElementById("result").innerHTML="입력된 아이디:"+id.value+
+		" 입력된 비밀번호: "+pwd.value+" 입력된 이메일: "+email.value;
+	}
+</script>
+</head>
+<body>
+아이디(5~9자 사이) <input type="text" id="id"><br>
+<!-- 비밀번호는 5자이상이고 모두 숫자로 이루어 졌는지 검사해 보세요. -->
+비밀번호(5자이상) <input type="password" id="pwd"><br>
+<!-- 이메일에 @가 포함되었는지 검사해보세요. -->
+이메일 <input type="text" id="email"><br>
+<input type="button" value="확인" onclick="showDate()">
+<div id="result">
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		background-color: blue;
+		font-size: 1.5em;
+		color: white;
+	}
+	ul li{
+		list-style: none;
+		float: left;
+		width: 130px;
+		background-color: #aaa;
+	}
+	@media(max-width:700px){ /* 화면최대크기가 600px인 경우 */
+		body{
+			font-size: 20px;
+			color: green;
+			background-color: pink;
+		}
+		ul li{
+			clear:both;
+			width: 200px;
+			background-color: gray;
+			margin-top: 3px;
+		}
+	}
+	@media(min-width:701px) and (max-width:900px){
+		body{
+			background-color: red;
+			color:white;
+		}
+	}
+</style>
+</head>
+<body>
+<div>
+	<ul>
+		<li>메뉴1</li>
+		<li>메뉴2</li>
+		<li>메뉴3</li>
+		<li>메뉴4</li>
+	</ul>
+</div>
+<div style="clear:both;">
+	<h1>아리랑</h1>
+	<p>아리랑 아리랑 아라리요~~</p>
+</div>
+</body>
+</html>

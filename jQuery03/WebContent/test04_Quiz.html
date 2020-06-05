@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#selector").change(function(){
+			var path=$(this).val();
+			$("#imglist1").html("<img src='"+path+"'>");
+		});
+		$("#selector").dblclick(function(){
+			var path=$(this).val();
+			$("#imglist2").append("<img src='"+path+"'>");
+		});
+		$("#btn1").click(function(){
+			var path=$("#selector").val();
+			$("#imglist2").append("<img src='"+path+"'>");
+		});
+	});
+</script>
+</head>
+<body>
+<select id="selector" size="10">
+	<option value="images/1.png">소년</option>
+	<option value="images/2.png">커피</option>
+	<option value="images/3.png">강아지</option>
+</select>
+<span id="imglist1"></span><br><br>
+<input type="button" value="담기" id="btn1">
+<div id="imglist2"></div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+body{
+	font-size: 15px;
+	color:gray;
+	background-color:#3c7cc4;
+}
+#header{
+	background: url('../images/3.png') no-repeat;
+	width:1000px;
+	height: 300px;
+}

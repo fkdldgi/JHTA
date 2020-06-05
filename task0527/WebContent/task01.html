@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<style type="text/css">
+.num{
+	width: 100px;
+}
+</style>
+</head>
+<body>
+<input type="text" class="num" id="num1">+
+<input type="text" class="num" id="num2">=
+<input type="text" class="num" id="result">
+<input type="button" id="btn1" value="합구하기">
+</body>
+<script type="text/javascript">
+	$("#btn1").click(function(){
+		var num1=parseInt($("#num1").val());
+		var num2=parseInt($("#num2").val());
+		$("#result").val(num1+num2);
+	});
+</script>
+</html>

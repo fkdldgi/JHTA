@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>아이디찾기</h1>
+이메일 <input type="text" id="email"><br>
+비밀번호 <input type="password" id="pwd"><br>
+<input type="button" value="찾기" id="btn1">
+<div id="result"></div>
+</body>
+<script type="text/javascript">
+	var btn1=document.getElementById("btn1");
+	btn1.onclick=function(){
+		const email=document.getElementById("email").value;
+		const pwd=document.getElementById("pwd").value;
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				let text=xhr.responseText;
+				const div=document.getElementById("result");
+				div.innerHTML=text;
+			}
+		};
+		xhr.open('get','findid.jsp?email='+email+"&pwd="+pwd,true);
+		xhr.send();
+	}
+</script>
+</html>

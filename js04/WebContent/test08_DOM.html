@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="이미지 추가" id="btn1">
+<input type="button" value="이미지 삭제" id="btn2">
+<div id="imglist">
+</div>
+</body>
+<script>
+	//DOM(Document Object Model)
+	var btn1=document.getElementById("btn1");
+	var num=1;
+	btn1.addEventListener("click",function(){
+		//img요소 생성하기
+		var img=document.createElement("img");
+		img.src="images/"+num++ +".png"
+		var div=document.getElementById("imglist");
+		//메모리에 생성된 img를 화면에 보이기 위해 div에 붙이기
+		div.appendChild(img);
+		if(num>20) num=1;
+	});
+	var btn2=document.getElementById("btn2");
+	btn2.addEventListener("click",function(){
+		var div=document.getElementById("imglist");
+		//div.removeChild(div.lastChild); //맨 마지막 자식객체 삭제하기
+		div.removeChild(div.firstChild); //맨 첫번째 자식객체 삭제하기
+	});
+</script>
+</html>

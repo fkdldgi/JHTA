@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* common.css */
+*{margin:0px;padding:0px;}
+#wrap{width:1000px;height:800px;text-align:center;margin:auto;}
+#header{width:100%;height:15%;background-color: aqua;}
+#header div{padding: 20px;}
+#header div ul li{display:inline-block; width: 100px;}
+#main{width:100%;height:70%;background-color: lightcyan;}
+#main > div{padding:10%;}
+#footer{width:100%;height:15%;background-color: paleturquoise;}
+table{position: relative;margin:auto;}

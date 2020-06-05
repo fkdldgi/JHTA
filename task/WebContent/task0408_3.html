@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function info(){
+		var resnum=document.getElementById("resnum");
+		var result=document.getElementById("result");
+		if(resnum.value.length!=13){
+			alert("주민번호 13자리를 입력하세요.");
+			resnum.focus();
+			return;
+		}else{
+			if(resnum.value.indexOf("-")!=-1){
+				alert("-를 입력하지 마세요.");
+				resnum.value="";
+				resnum.focus();
+				return;
+			}else{
+				for(var i=0; i<resnum.value.length; i++){
+					var ch=resnum.value.charAt(i);
+					if(!(ch>=0 && ch<=9)){
+						alert("숫자만 입력하세요.");
+						resnum.value="";
+						resnum.focus();
+						return;
+					}
+				}
+			}
+		}
+		var getSex=parseInt(resnum.value.substr(6,1));
+		var getBirth=resnum.value.substr(2,4);
+		if(getSex==1){
+			result.innerHTML="성별:남<br>생일:"+getBirth.substr(0,2)+"월"+getBirth.substr(2,2)+"일";
+		}else if(getSex==2){
+			result.innerHTML="성별:여<br>생일:"+getBirth.substr(0,2)+"월"+getBirth.substr(2,2)+"일";
+		}else{
+			result.innerHTML="존재하지 않는 주민번호입니다.";
+		}
+	}
+</script>
+
+</head>
+<body>
+	주민등록번호<input type="text" id="resnum">
+	<input type="button" value="클릭" id="btn" onclick="info()"><br>
+	<div style="width:300px;height:300px;" id="result"></div>
+</body>
+</html>

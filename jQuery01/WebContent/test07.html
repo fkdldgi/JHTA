@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+회원이름 <input type="text" id="name1"><br>
+회원주소 <input type="text" id="addr1" size="50"><br>
+<input type="checkbox" id="chk">위와동일<br>
+받는사람 <input type="text" id="name2"><br>
+받는주소 <input type="text" id="addr2" size="50"><br>
+<input type="button" value="이미지2배크게하기" id="btn1"><br>
+<img src="images/1.png" id="img1" style="width:100px;height:100px;">
+</body>
+<script type="text/javascript">
+	$("#chk").click(function(){
+		var chk=$("#chk").prop("checked");
+		if(chk){
+			var name1=$("#name1").prop("value");
+			var addr1=$("#addr1").prop("value");
+			$("#name2").prop("value",name1);
+			$("#addr2").prop("value",addr1);
+		}else{
+			$("#name2").prop("value","");
+			$("#addr2").prop("value","");
+		}
+	});
+	
+	$("#btn1").click(function(){
+		//방법1
+		//var width=$("#img1").prop("width");
+		//var height=$("#img1").prop("height");
+		
+		//방법2
+		//var w=parseInt($("#img1").css("width"));
+		//var h=parseInt($("#img1").css("height"));
+		
+		//방법3
+		var w=$("#img1").width(); //Number형태로 가져옴
+		var h=$("#img1").height();
+		
+		$("#img1").css({
+			"width":w*2+"px",
+			"height":h*2+"px"
+		});o
+	});
+</script>
+</html>

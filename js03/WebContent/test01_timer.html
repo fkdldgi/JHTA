@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#box{width:300px; height:200px; background-color:yellow;}
+</style>
+<script>
+	/*
+		setInterval(호출할함수,반복주기)
+		- 함수가 반복주기마다 호출됨
+		clearInterval(타이머아이디)
+		- 반복주기마다 함수를 호출하는 기능
+	*/
+
+	var tid=setInterval(changeColor,1000); //1초마다 changeColor함수 호출
+
+	var colors=["green","yellow","orange"];
+	var i=0;
+	function changeColor(){
+		var box=document.getElementById("box");
+		box.style.backgroundColor=colors[i++];
+		if(i==colors.length) i=0;
+	}
+	function stopChange(){
+		clearInterval(tid);
+	}
+	var t=setInterval(realTime,1000);
+	function realTime(){
+		var time=document.getElementById("time");
+		var date=new Date();
+		var h=date.getHours();
+		var m=date.getMinutes();
+		var s=date.getSeconds();
+		time.value=h+"시"+m+"분"+s+"초";
+	}
+</script>
+</head>
+<body>
+현재시간 <input type="text" id="time" readonly="readonly"><br><br>
+
+<input type="button" value="색상변경" onclick="changeColor()">
+<input type="button" value="변경멈춤" onclick="stopChange()">
+<div id="box"></div>
+</body>
+</html>

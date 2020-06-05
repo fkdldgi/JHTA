@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test05_css.html</title>
+<style>
+	#box1{width:300px;height:200px; border:2px solid red; background-color:red;}
+</style>
+<script>
+	/*
+		< 자바스크립트에서 css변경하기 >
+		- 형식
+		객체명.style.속성명=설정값;
+	*/
+	function changeCss(){
+		var color=prompt("어떤배경색?","orange"); //입력받기
+		var box1=document.getElementById("box1");
+		box1.style.width="600px";
+		box1.style.height="500px";
+		box1.style.backgroundColor=color;
+	}
+</script>
+</head>
+<body>
+<div id="box1">
+	<h1>안녕 <h1>
+</div>
+<input type="button" value="css change" onclick="changeCss()">
+</body>
+</html>

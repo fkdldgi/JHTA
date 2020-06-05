@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	@keyframes ani1{
+		0%{margin-left:0px;}
+		50%{margin-left:700px; transform:rotate(360deg);}
+		100%{margin-left:1000px;}
+	}
+	#img1{
+		animation-name:ani1;
+		animation-duration:4s;
+		animation-iteration-count:infinite; /*무한반복*/
+	}
+	@keyframes ani2{
+		from{margin-left:0px;}
+		to{margin-left:1000px;}
+	}
+	#img2{
+		animation-name:ani2;
+		animation-duration:4s;
+		animation-iteration-count:2; /*애니메이션을 2회수행*/
+	}
+	@keyframes ani3{
+		from{background-color:pink;}
+		to{background-color:yellow;}
+	}
+	body{
+		animation-name:ani3;
+		animation-duration:2s;
+		animation-iteration-count:infinite;
+	}
+</style>
+</head>
+<body>
+<!-- body배경색상이 분홍색에서 노란색으로 2초간 변경되도록 animation 사용해서 만들어보세요. -->
+<div>
+	<img src="images/1.png" id="img1">
+</div>
+<div>
+	<img src="images/2.png" id="img2">
+</div>
+</body>
+</html>

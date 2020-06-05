@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//방법1
+		/* $.ajax({
+			url:"movieList.jsp",
+			dataType:"text",
+			success:function(data){
+				$("#list").html(data);		
+			}
+		}); */
+		//방법2
+		$("#list").load("movieList.jsp");
+		
+		var email="test@daum.net";
+		var pwd="1234";
+		$("#findid").load("findid.jsp",{"email":email,"pwd":pwd});
+		
+		/* 
+		$("li a[href='currMovie.jsp']").click(function(e){
+			e.preventDefault();
+			$("#movieInfo").load("currMovie.jsp");
+		});
+		$("li a[href='nextMovie.jsp']").click(function(e){
+			e.preventDefault();
+			$("#movieInfo").load("nextMovie.jsp");
+		}); */
+		
+		$("ul li a").click(function(e){
+			e.preventDefault();
+			var url=$(this).prop("href");
+			$("#movieInfo").load(url);
+		});
+	});
+</script>
+</head>
+<body>
+<h1>우리우리 영화관</h1>
+<img src="../images/001.jpg"><br>
+<ul>
+	<li><a href="currMovie.jsp">현재상영작</a></li>
+	<li><a href="nextMovie.jsp">상영예정작</a></li>
+</ul>
+<div id="movieInfo">
+</div>
+<div id="list">
+</div>
+<div id="findid">
+</div>
+</body>
+</html>

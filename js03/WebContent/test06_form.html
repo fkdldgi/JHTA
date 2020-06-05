@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function showData(){
+		var id=document.getElementsByName("id"); //방법1
+		var pwd=document.getElementsByName("pwd")[0]; //방법2
+		var str="입력된 아이디:"+id[0].value+"\n"+
+				"비밀번호:"+ pwd.value;
+		var hobby=document.getElementsByName("hobby");
+		var check="";
+		for(var i=0; i<hobby.length; i++){
+			if(hobby[i].checked==true){
+				check+=hobby[i].value+" ";
+			}
+		}
+
+		var addr=document.getElementsByName("addr");
+		var check2="";
+		for(var j=0; j<addr.length; j++){
+			if(addr[j].checked==true){
+				check2=addr[j].value;
+				break;
+			}
+		}
+		var job=document.getElementsByName("job")[0];
+		//var j=job.value;
+		var index=job.selectedIndex; //선택된 인덱스 
+		var j=job.options[index].value;
+		str+="\n취미:" +check+ "\n사는지역:"+check2+"\n"+"직업:"+j+"\n";
+		alert(str);
+	}
+</script>
+</head>
+<body>
+<form>
+	아이디<input type="text" name="id"><br>
+	비밀번호<input type="text" name="pwd"><br>
+	취미<br>
+	<input type="checkbox" value="여행" name="hobby" checked="checked">여행
+	<input type="checkbox" value="독서" name="hobby">독서
+	<input type="checkbox" value="영화" name="hobby">영화
+	<br>
+	<!-- 선택된 지역도 출력되도록 해보세요. -->
+	사는지역<br>
+	<input type="radio" value="서울" name="addr" checked="checked">서울
+	<input type="radio" value="부산" name="addr">부산
+	<input type="radio" value="기타" name="addr">기타
+	<br>
+	직업
+	<select name="job" size="4"> <!-- size는 펼쳐져서 보임 -->
+		<option value="학생">학생</option>
+		<option value="공무원">공무원</option>
+		<option value="프로그래머">프로그래머</option>
+		<option value="기타">기타</option>
+	</select>
+	<br>
+	<input type="button" value="가입" onclick="showData()">
+	<input type="reset" value="취소">
+</form>
+</body>
+<script>
+	var job=document.getElementsByName("job")[0];
+	job.selectedIndex=2;
+</script>
+</html>

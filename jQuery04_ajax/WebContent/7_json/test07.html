@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			/* $.ajax({
+				url:"server2.jsp",
+				dataType:"json",
+				success:function(data){ //응답된 결과는 json객체
+					let id=data.id;
+					let pwd=data.pwd;
+					let age=data.age;
+					$("#result").append("<p>아이디:"+id+"</p>");
+					$("#result").append("<p>비밀번호:"+pwd+"</p>");
+					$("#result").append("<p>나이:"+age+"</p>");
+				}
+			}); */
+			/* $.getJSON("server2.jsp",function(data){
+				let id=data.id;
+				let pwd=data.pwd;
+				let age=data.age;
+				$("#result").append("<p>아이디:"+id+"</p>");
+				$("#result").append("<p>비밀번호:"+pwd+"</p>");
+				$("#result").append("<p>나이:"+age+"</p>");
+			}); */
+			$.getJSON("server2.jsp",function(data){
+				$.each(data,function(key,value){
+					$("#result").append("key:"+key+",value:"+value+"<br>");
+				});
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" id="btn1" value="회원정보">
+<div id="result"></div>
+</body>
+</html>

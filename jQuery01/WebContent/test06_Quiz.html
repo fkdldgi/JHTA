@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+<!-- 버튼을 클릭하면 이미지를 서로 번갈아 바꿔보세요. -->
+<input type="button" value="이미지바꾸기" id="btn1">
+<img src="images/1.png" id="img1">
+<img src="images/2.png" id="img2"><br>
+기타사항 <input type="checkbox" id="chk">
+<input type="text" id="msg" size="50"><br>
+</body>
+<script type="text/javascript">
+	$("#msg").prop("disabled",true);
+	//방법1
+/* 	$("#chk").click(function(){
+		$("#msg").prop("disabled",!$("#chk").prop("checked"));
+		$("#msg").focus();
+	}); */
+	//방법2
+	$("#chk").click(function(){
+		var checked=$(this).prop("checked");
+		if(checked){
+			$("#msg").prop("disabled",false);
+			$("#msg").focus();
+		}else{
+			$("#msg").prop("disabled",true);
+		}
+	});
+	
+	$("#btn1").click(function(){
+		var img1_src=$("#img1").prop("src");
+		var img2_src=$("#img2").prop("src");
+		$("#img1").prop("src",img2_src);
+		$("#img2").prop("src",img1_src);
+	});
+</script>
+</html>

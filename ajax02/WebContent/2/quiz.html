@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr=null;
+	function searchId(){
+		var email=document.getElementById("email").value;
+		var pwd=document.getElementById("pwd").value;
+
+		if(email.trim()=="" || pwd.trim()==""){
+			document.getElementById("result").innerHTML="";
+			return;
+		}
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getId;
+		xhr.open('get','getId.jsp?pwd='+pwd+'&email='+email,true);
+		xhr.send();
+	}
+	function getId(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var xml=xhr.responseXML;
+			var id=xml.getElementsByTagName("id")[0].firstChild.nodeValue;
+			var div=document.getElementById("result");
+			if(id=="null"){
+				div.innerHTML="조건에 맞는 회원을 찾지 못했습니다.";
+			}else{
+				div.innerHTML="아이디:"+id;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<h1>아이디찾기</h1>
+<!-- ajax를 사용해서 이메일과 비밀번호가 일치하면 해당 회원의 아이디를 출력해보세요. -->
+이메일 <input type="text" id="email"><br>
+비밀번호 <input type="password" id="pwd"><br>
+<input type="button" value="찾기" onclick="searchId()">
+<div id="result"></div>
+</body>
+</html>

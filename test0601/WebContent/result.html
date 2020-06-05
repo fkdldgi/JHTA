@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.users{
+		border:1px solid black;
+		width: 300px;
+	}
+</style>
+</head>
+<body>
+<!-- 사용자의 가입날짜를 파라미터로 전달하여 
+해당날짜에 가입된 모든 사용자의 모든 정보를 조회하는 기능. 
+(MyUsers테이블과 연동) -->
+<h1>회원정보 찾기</h1>
+가입날짜 <input type="date" id="regdate"><br>
+<input type="button" id="btn1" value="확인">
+<div id="result"></div>
+</body>
+<script type="text/javascript">
+	
+	var userList=null;
+	var btn1=document.getElementById("btn1");
+	btn1.onclick=function(){
+		var result=document.getElementById("result");
+		const regdate=document.getElementById("regdate").value;
+		userList=new XMLHttpRequest();
+		userList.onreadystatechange=function(){
+			if(userList.readyState==4 && userList.status==200){
+				var data=userList.responseText;
+				var json=JSON.parse(data);
+				for(let i=0; i<json.length; i++){
+					var id=json[i].id;
+					var pwd=json[i].pwd;
+					var email=json[i].email;
+					var regdate=json[i].regdate;
+					var div=document.createElement("div");
+					div.innerHTML="<p>아이디:"+id+"</p>"+
+									"<p>비밀번호:"+pwd+"</p>"+
+									"<p>이메일:"+email+"</p>"+
+									"<p>가입날짜:"+regdate+"</p>";
+					div.className="users";
+					result.appendChild(div);
+				}
+			}
+		};
+		userList.open('get','/test0601/myusers/select?regdate='+regdate,true);
+		userList.send();
+	}
+</script>
+</html>

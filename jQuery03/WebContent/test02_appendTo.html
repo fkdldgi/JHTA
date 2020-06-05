@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			//앞에 요소가 return되서 img에 fadeIn효과를 부여할 수 있다.
+			$("<img src='images/1.png' style='display:none'>") 
+			.appendTo("#imglist")
+			.fadeIn(1000);
+		});
+		
+		$("#btn1").click(function(){
+			//앞에 요소가 imglist이므로 imglist에 효과가 부여됨
+			$("#imglist")
+			.hide()
+			.append("<img src='images/1.png'>")
+			.fadeIn(1000);
+		});
+		
+		$("#btn2").click(function(){
+			var a=$("#imglist").prepend("<img src='images/1.png'>");
+			a.css("border","2px solid green");
+		});
+		
+		$("#btn3").click(function(){
+			var a=$("<img src='images/1.png'>").prependTo("#imglist");
+			a.css("border","2px solid green");
+		});
+	});
+</script>
+</head>
+<body>
+<button id="btn" >버튼1</button>
+<button id="btn1" >버튼2</button>
+<button id="btn2" >버튼3</button>
+<button id="btn3" >버튼4</button>
+<div id="imglist"></div>
+</body>
+</html>

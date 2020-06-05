@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var num=-140;
+		setInterval(function(){
+			var moveLeft=parseInt($("#imgslide").css("left"))+num;
+			$("#imgslide").animate({
+				left:moveLeft
+			},500,function(){
+				var left=parseInt($(this).css("left"));
+				if(left<=-700 || left>=0){
+					num=-num;
+				}
+			});
+		}, 1000);
+	});
+</script>
+<style>
+	*{margin: 0; padding: 0; }
+	#parent{width:700px;height: 200px; position: relative; background-color: orange;
+			left:200px; top:30px;overflow: hidden;}
+	#imgslide{width:1400px; height: 200px;position:absolute;}
+	#imgslide ul li img{width: 136px; height:196px; margin:2px}
+	#imgslide ul li{float: left; list-style: none;}
+</style>
+</head>
+<body>
+<div id="parent">
+	<div id="imgslide">
+		<ul>
+			<li><img src="images/001.jpg"></li>
+			<li><img src="images/002.jpg"></li>
+			<li><img src="images/003.jpg"></li>
+			<li><img src="images/004.jpg"></li>
+			<li><img src="images/005.jpg"></li>
+			<li><img src="images/006.jpg"></li>
+			<li><img src="images/007.jpg"></li>
+			<li><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

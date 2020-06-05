@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_position.html</title>
+<style>
+	#div1{width:200px; height:200px; background-color:green;}
+	#div2{width:700px; height:900px; background-color:orange;
+	position:relative; left:100px; top:30px; /*relative: 원래 만들어지는 위치를 기준으로 위치가 변경됨*/
+	}
+	#div3{width:200px; height:200px; background-color:red;
+	position: fixed; top:30px; right:30px; /*스크롤바를 내려도 화면에서 지정위치로 고정된다*/
+	}
+</style>
+</head>
+<body>
+<div id="div1">
+	div1
+</div>
+<div id="div2">
+	div2
+</div>
+<div id="div3">
+	div3
+</div>
+</body>
+</html>

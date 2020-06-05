@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#booklist div{
+		width:70%;
+		height: 180px;
+		border: 3px solid green;
+		margin:10px;
+		font-size:0.8em;
+		padding:10px;
+		border-radius:5px;
+	}
+	#booklist div:hover{
+		background-color: #aaa;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		var start=1;
+		$("#btn_search").click(function(){
+			start=1;
+			$("#booklist").empty();
+			var search=$("#search").val();
+			$.getJSON("findbook.jsp",{"search":search},function(data){
+				$(data.items).each(function(i,item){
+					var title=item.title;
+					var price=item.price;
+					var img=item.image;
+					var div=$("<div></div>").appendTo("#booklist");
+					div.append("<p>책이름:"+title+"</p>");
+					div.append("<p>가격:"+price+"</p>");
+					div.append("<p><img src='"+img+"'></p>");
+				});
+			});
+		});
+		$("#btn_more").click(function(){
+			start+=5;
+			var search=$("#search").val();
+			$.getJSON("findbook.jsp",{"search":search,"start":start},function(data){
+				$(data.items).each(function(i,item){
+					var title=item.title;
+					var price=item.price;
+					var img=item.image;
+					var div=$("<div></div>").appendTo("#booklist");
+					div.append("<p>책이름:"+title+"</p>");
+					div.append("<p>가격:"+price+"</p>");
+					div.append("<p><img src='"+img+"'></p>");
+				});
+				var height=$(document).height();
+				$(window).scrollTop(height);
+			});
+		});
+	});
+	
+	
+</script>
+</head>
+<body>
+<div id="contents">
+	<h1>도서검색</h1>
+	검색어 <input type="text" id="search" value="자바">
+	<input type="button" value="찾기" id="btn_search">
+	<div id="booklist"></div>
+</div>
+<!-- 더보기 버튼을 누르면 해당도서정보를 가져와 추가되도록 해보세요. -->
+<input type="button" value="더보기" id="btn_more">
+</body>
+</html>

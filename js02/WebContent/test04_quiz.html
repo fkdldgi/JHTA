@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_quiz.html</title>
+<script type="text/javascript">
+	var imgs=["images/004.jpg","images/005.jpg","images/006.jpg"];
+	function changeImg(){
+		//var arr=document.getElementsByClassName("movie");
+		var arr=document.querySelectorAll("#movie img");
+		for(var i=0; i<imgs.length; i++){
+			arr[i].src=imgs[i];
+		}
+	}
+</script>
+
+</head>
+<body>
+<div id="movie">
+	<h1>최근상영영화</h1>
+	<img src="images/001.jpg">
+	<img src="images/002.jpg">
+	<img src="images/003.jpg"><br>
+	<!-- 버튼을 누르면 각각의 이미지를 배열의 이미지로 바꿔보세요. -->
+	<input type="button" value="다음영화보기" onclick="changeImg()">
+</div>
+</body>
+</html>

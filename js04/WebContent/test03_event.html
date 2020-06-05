@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function showXY(e){
+		const x=e.clientX;
+		const y=e.clientY;
+		document.getElementById("box1").innerHTML="X:"+x+",Y:"+y;
+	}
+	function showMsg(e){
+		//alert(e.keyCode); ==>e.keyCode:누른 키보드 
+		var msg=document.getElementById("msg");
+		if(e.keyCode==13){ //키보드로 누른 값이 엔터키인 경우(13)
+			alert("입력된메시지:"+msg.value)
+		}
+	}
+	function addBorder(e){
+		var img=e.target; //target:이벤트가 발생된 객체
+		img.style.border="2px solid green";//이벤트가 발생된 이미지에 보더 만들기
+	}
+	function delBorder(e){
+		var img=e.target;
+		img.style.border="none";
+	}
+</script>
+</head>
+<body>
+<div id="imgbox">
+	<img src="images/1.png" onmouseover="addBorder(event)" onmouseout="delBorder(event)">
+	<img src="images/2.png" onmouseover="addBorder(event)" onmouseout="delBorder(event)">
+	<img src="images/3.png" onmouseover="addBorder(event)" onmouseout="delBorder(event)">
+</div>
+<div id="box1"></div>
+<div id="div1" style="width:500px;height:300px; border:2px solid red;"
+	onmousemove="showXY(event)"></div>
+메시지:<input type="text" id="msg" onkeyup="showMsg(event)"><br>
+</body>
+</html>

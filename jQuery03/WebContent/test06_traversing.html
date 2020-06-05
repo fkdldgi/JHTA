@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			$("div").first().css("backgroundColor","green");
+			//$.find("셀렉터") --> 자식요소중에서 셀렉터 찾음
+			$("#pp").find(".aa").css("border","2px solid red");
+			$("#ari").parent().css("border","3px solid yellow");
+			$("#ari").next().css("font-size",40);
+			$("#pp .aa").prev().css("color","yellow");
+			var len=$("#pp").children().length;
+			alert(len)
+			//#pp자식요소 div의 html값들을 alert로 출력해보세요.
+			$("#pp").children().each(function(){
+				alert($(this).html())
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="노드찾기" id="btn1">
+<div id="pp">
+	<div id="ari">아리랑</div>
+	<div class="aa">아리랑 고개</div>
+	<div>십리도 못가서 발병난다.</div>
+</div>
+<div class="aa">나를 버리고 가시는 님은.......</div>
+</body>
+</html>

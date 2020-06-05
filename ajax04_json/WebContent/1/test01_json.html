@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	[ json ]
+	- 서로 다른 프로그램언어간의 데이터 통신을 위한 표기법(읽고 쓰기 쉬운표현법)
+	- 경량의 데이터를 교환하는 방식으로 인터넷에서 데이터를 주고받을 때 표현하는 방법
+	- name/value 형태의 한 쌍으로 표현된다.
+ -->
+ <script type="text/javascript">
+ 	var user={"id":"admin","pwd":"1234"}; //json
+ 	console.log(user.id+","+user.pwd);
+ 	
+ 	function printUser(u){
+ 		console.log(u.id+","+u.pwd);
+ 	}
+ 	printUser(user);
+ 	//도서정보(도서제목,저자,가격,출판사)를 json객체에 담고 값을 출력해보세요.
+ 	var book={
+ 		"title":"JAVA",
+ 		"author":"송영현",
+ 		"price":"20000",
+ 		"publisher":"중앙HTA"
+ 		};
+ 	
+ 	function printBook(b){
+ 		console.log(b.title+","+b.author+","+b.price+","+b.publisher);
+ 	}
+ 	printBook(book);
+ 	
+ 	var users=[
+ 		{"id":"admin","pwd":"1234","email":"admin@naver.com"},
+ 		{"id":"test","pwd":"2345","email":"test@naver.com"},
+ 		{"id":"hello","pwd":"3456","email":"hello@naver.com"},
+ 	];
+ 	for(var i=0;i<users.length;i++){
+ 		console.log(users[i].id+","+users[i].pwd+","+users[i].email);
+ 	}
+ 	//도서정보 3개를 담는 json배열을 만들고 전체 정보를 출력해 보세요.
+ 	var books=[
+ 		{"title":"JAVA","author":"송영현","price":"20000","publisher":"중앙HTA"},
+ 		{"title":"ORACLE","author":"최성진","price":"30000","publisher":"이음"},
+ 		{"title":"JAVA","author":"이상훈","price":"40000","publisher":"한빛"},
+ 	];
+ 	for(var i=0;i<books.length;i++){
+ 		console.log(books[i].title+","+books[i].author+","+books[i].price+","+books[i].publisher);
+ 	}
+ 	
+ 	var member={
+ 		"grade":"gold",
+ 		"list":[{"id":"admin","pwd":"1234"},{"id":"hello","pwd":"5678"}],
+ 		showMsg:function(msg){
+ 			alert(msg);
+ 		}
+ 	};
+ 	member.showMsg("반가워요!");
+ 	console.log("회원등급:"+member.grade);
+ 	for(vari=0;i<member.list.length;i++){
+ 		console.log(member.list[i].id+","+member.list[i].pwd);
+ 	}
+ 	var mem="{'id':'test','name':'길동','pwd':1234}";
+ 	var json=eval("("+mem+")"); //자바스크립트에서 ':'를 인식할 수 없어서 ()로 통째로 묶어 해석하도록 함
+ 	console.log("아이디:"+json.id);
+ 	console.log("이름:"+json.name);
+ 	console.log("비밀번호:"+json.pwd);
+ </script>
+</body>
+</html>

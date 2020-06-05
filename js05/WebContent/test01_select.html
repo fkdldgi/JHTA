@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="항목추가" id="btn1">
+<input type="button" value="항목삭제" id="btn2"><br>
+<select id="list" style="width:200px;" size="5">
+	<option value="사과">사과</option>
+	<option value="포도">포도</option>
+</select>
+</body>
+<script>
+	//항목추가버튼
+	var btn1=document.getElementById("btn1");
+	btn1.addEventListener("click",function(e){
+		var item=prompt("어떤 과일을 추가할까요?","바나나");
+		var option=document.createElement("option");
+		option.value=item;
+		option.text=item;
+		var select=document.getElementById("list");
+		//select.appendChild(option);
+		select.add(option);
+	});
+	//항목삭제버튼
+	var btn2=document.getElementById("btn2");
+	btn2.addEventListener("click",function(e){
+		var selec=document.getElementById("list");
+		var index=selec.selectedIndex;
+		if(index==-1){
+			alert("삭제할 항목을 선택해주세요!")
+		}else{
+			selec.remove(index);
+		}
+	});
+</script>
+</html>

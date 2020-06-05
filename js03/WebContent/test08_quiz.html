@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//방법1
+	function pick(){
+		var imgs=document.getElementById("imgs");
+		var index=imgs.selectedIndex;
+		var img1=document.getElementById("img1");
+		img1.src=imgs.options[index].value;
+	}
+	//방법2
+	function pick2(ch){ //파라미터로 this.selectedIndex를 받는다
+		var img1=document.getElementById("img1");
+		img1.src=imgs.options[ch].value;
+	}
+	//방법3
+	function pick3(value){ //파라미터로 this.value를 받는다
+		var img1=document.getElementById("img1");
+		img1.src=value;
+	}
+
+	function allCheck(chk){
+		var ch=document.getElementsByTagName("input");
+		if(chk==true){
+			for(var i=0; i<ch.length; i++){
+				ch[i].checked=true;
+			}
+		}else{
+			for(var i=0; i<ch.length; i++){
+				ch[i].checked=false;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<select id="imgs" size="4" style="width: 150px;" onclick="pick3(this.value)">
+	<option value="images/2.png">커피</option>
+	<option value="images/19.png">선물</option>
+	<option value="images/17.png">맥주</option>
+	<option value="images/12.png">지구</option>
+</select><br>
+<img src="images/2.png" id="img1"><br>
+<table border="1" width="400" id="table">
+	<tr>
+		<td><input type="checkbox" onclick="allCheck(this.checked)">전체선택</td>
+		<td>보낸사람</td>
+		<td>제목</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>홍길동</td>
+		<td>테스트</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>이길동</td>
+		<td>반가워요.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Grade</title>
+<style>
+	*{padding:0px; margin:0px;}
+	#wrap{width: 800px; height:500px; margin:auto; border:2px solid black;}
+	#top{width:70%; height:45%; margin:auto;}
+	#bottom{width:70%; height:45%; margin:auto;}
+	#calc{margin-left:150px;}
+	.btn{width:150px;height:9%; margin-bottom:20px;}
+	label{display:inline-block; margin:20px;}
+	.text{width:300px; height:30px; margin-left:130px;}
+</style>
+<script type="text/javascript">
+	function grade(){
+		var kor=Number(document.getElementById("kor").value);
+		var eng=Number(document.getElementById("eng").value);
+		var math=Number(document.getElementById("math").value);
+		var tot=document.getElementById("tot");
+		var avg=document.getElementById("avg");
+		var score=document.getElementById("score");
+		var array=getGrade(kor,eng,math);
+		tot.value=array[0];
+		avg.value=Math.round(array[1],1);
+		score.value=array[2];
+	}
+	function getGrade(kor,eng,math){
+		var tot=kor+eng+math;
+		var avg=tot/3;
+		var num=avg/10;
+		var score="";
+		console.log(Math.trunc(num));
+		switch(Math.trunc(num)){
+			case 10: score='A+'; break;
+			case 9:	score='A'; break;
+			case 8:	score='B+'; break;
+			case 7: score='B'; break;
+			case 6: score='C+'; break;
+			case 5: score='C'; break;
+			default: score='F';
+		}
+		var array=new Array(tot,avg,score);
+		return array;
+	}
+	
+	function textClear(){
+		var list=document.getElementsByClassName("text");
+		for(var i=0; i<list.length; i++){
+			list[i].value="";
+		}
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="top">
+		<label>국어</label><input type="text" id="kor" class="text"><br>
+		<label>영어</label><input type="text" id="eng" class="text"><br>
+		<label>수학</label><input type="text" id="math" class="text">
+		
+	</div>
+	<input type="button" value="계산" id="calc" class="btn" onclick="grade()">
+	<input type="button" value="지우기" id="erase" class="btn" onclick="textClear()">
+	<div id="bottom">
+		<label>총점</label><input type="text" id="tot" class="text"><br>
+		<label>평균</label><input type="text" id="avg" class="text"><br>
+		<label>학점</label><input type="text" id="score" class="text">
+	</div>
+</div>
+</body>
+</html>

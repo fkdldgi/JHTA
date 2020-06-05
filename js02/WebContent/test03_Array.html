@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.movie{border:3px solid green;}
+</style>
+<script type="text/javascript">
+	function changeImg(){
+		//name속성이 img인 요소를 배열로 얻어옴
+		var imgs=document.getElementsByName("img");
+		imgs[0].src="images/4.png";
+		imgs[1].src="images/5.png";
+		imgs[2].src="images/6.png";
+	}
+	var ari=["나를 버리고 가시는 님은","십리도 못가서","발병난다."];
+	function nextArirang(){
+		var div=document.getElementsByTagName("div");
+		for(var i=0; i<ari.length; i++){
+			div[i].innerHTML=ari[i];
+		}
+	}
+	
+	function changeImg1(){
+		//name속성이 img인 요소를 배열로 얻어옴
+		var imgs=document.getElementsByClassName("movie");
+		imgs[0].src="images/004.jpg";
+		imgs[1].src="images/005.jpg";
+		imgs[2].src="images/006.jpg";
+	}
+</script>
+</head>
+<body>
+<img src="images/1.png" name="img">
+<img src="images/2.png" name="img">
+<img src="images/3.png" name="img"><br>
+<input type="button" value="이미지변경" onclick="changeImg()">
+<div>아리랑</div>
+<div>아리랑 아리랑 아라리요~</div>
+<div>아리랑 고개로 넘어간다.</div>
+<input type="button" value="다음가사" onclick="nextArirang()"><br>
+<div id="poster">
+	<img src="images/001.jpg" class="movie">
+	<img src="images/002.jpg" class="movie">
+	<img src="images/003.jpg" class="movie"><br>
+</div>
+<input type="button" value="이미지변경1" onclick="changeImg1()">
+</body>
+<script>
+	//css 셀렉터로 요소 배열로 얻어오기
+	var pmovie=document.querySelectorAll("#poster .movie");
+	for(var i=0; i<pmovie.length; i++){
+		pmovie[i].src="images/00"+(i+4)+".jpg";
+	}
+</script>
+</html>

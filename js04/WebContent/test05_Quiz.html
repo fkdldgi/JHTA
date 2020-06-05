@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	#main{width:500px; height: 500px;border:2px solid black;
+	position: absolute; left: 200px; top:200px;overflow: hidden;}
+</style>
+<script>
+	window.onload=function(){
+		const div=document.getElementById("main");
+		const img=document.getElementById("img");
+		div.onclick=moveImg;
+		function moveImg(e){
+			const x=e.clientX;
+			const y=e.clientY;
+			const w=img.clientWidth;
+			//const w=img.width;
+			const h=img.clientHeight;
+			//const h=img.height;
+			const offl=div.offsetLeft;
+			const offt=div.offsetTop;
+			img.style.left=(x-(w/2))-offl+"px";
+			img.style.top=(y-(h/2))-offt+"px";
+		}
+	}
+</script>
+<body>
+<div id="main">
+	<img src="images/2.png" style="position:absolute; background-color:black;" id="img">
+</div>
+
+</body>
+</html>
